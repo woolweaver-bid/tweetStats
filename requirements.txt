@@ -1,2 +1,8 @@
 requests
 tweepy
+hurry.filesize
+psutil
+os
+uptime
+datetime
+platform
