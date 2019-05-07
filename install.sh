@@ -8,10 +8,9 @@
  then
  echo "Declined $NAMEOFAPP"
  else
- sudo apt-get install -y python3-pip
  pip3 install -U -r https://raw.githubusercontent.com/mwoolweaver/tweetStats/master/requirements.txt
- wget https://raw.githubusercontent.com/mwoolweaver/tweetStats/master/pihole_tweeter.py -P ~/tweetStats/
- wget https://raw.githubusercontent.com/mwoolweaver/tweetStats/master/config.ini -P ~/tweetStats/
+ wget https://raw.githubusercontent.com/mwoolweaver/tweetStats/master/tweetStats.py -O ~/tweetStats/tweetStats.py
+ wget https://raw.githubusercontent.com/mwoolweaver/tweetStats/master/config.ini.example -O ~/tweetStats/config.ini
  CONSUMER_KEY=$(whiptail --inputbox "Consumer Key" 20 60 "" 3>&1 1>&2 2>&3)
  CONSUMER_SECRET=$(whiptail --inputbox "Consumer Secret" 20 60 "" 3>&1 1>&2 2>&3)
  ACCESS_TOKEN=$(whiptail --inputbox "Access Token" 20 60 "" 3>&1 1>&2 2>&3)
@@ -27,6 +26,6 @@
  rm ~/pihole_tweeter/config.inie
  echo "did not install cronjob"
  else
- sudo wget http://raw.githubusercontent.com/mwoolweaver/tweetStats/master/tweetStats -P /etc/cron.d/
+ sudo wget http://raw.githubusercontent.com/mwoolweaver/tweetStats/master/tweetStats -O /etc/cron.d/tweetStats
  rm ~/tweetStats/config.inie
  fi }
