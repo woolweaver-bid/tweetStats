@@ -1,6 +1,6 @@
 [DEFAULT]
- api_path = http://localhost/admin/api.php
- consumer_key = VALUE1
- consumer_secret = VALUE2
- access_token = VALUE3
- access_token_secret = VALUE4
+api_path = http: //localhost/admin/api.php
+consumer_key = VALUE1
+consumer_secret = VALUE2
+access_token = VALUE3
+access_token_secret = VALUE4
