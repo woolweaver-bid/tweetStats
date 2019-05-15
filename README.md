@@ -24,6 +24,8 @@ This will tweet your stats at 23:59 everyday and redirects output to /dev/null:
 
 # What Does It Mean
 
+ * domains_being_blocked, dns_queries_today, ads_blocked_today, ads_percentage_today, queries_forwarded, queries_cached, unique_clients, privacy_level - All pulled from [pi-hole/AdminLTE/api.php](https://github.com/pi-hole/AdminLTE/blob/master/api.php)
+
  * 🚫🌐 = domains_being_blocked
 
  * 🈵⁉️  = dns_queries_today
@@ -38,15 +40,15 @@ This will tweet your stats at 23:59 everyday and redirects output to /dev/null:
 
  * 🔐🎚️ = privacy_level
 
- * 🆙⏳ = uptime - w/ [1-python-pretty-time-delta.py](https://gist.github.com/thatalextaylor/7408395)
+ * 🆙⏳ = pretty_time_delta([uptime()](https://pythonhosted.org/uptime/#uptime.uptime)) - w/ [1-python-pretty-time-delta.py](https://gist.github.com/thatalextaylor/7408395)
 
- * ⚖️x̅  = loadavg - w/ regex `'lo'(?:,\s*)?|[][']|\(|\)` to remove unnecessary characters as suggested [here](https://stackoverflow.com/a/56153556/11456464) also modified to remove () as well
+ * ⚖️x̅  = [os.getloadavg()](https://docs.python.org/2/library/os.html#os.getloadavg) - w/ regex `'lo'(?:,\s*)?|[][']|\(|\)` to remove unnecessary characters as suggested [here](https://stackoverflow.com/a/56153556/11456464) also modified to remove () as well
 
- * 🐏📈 = psutil.virtual_memory()[2] && psutil.virtual_memory()[3] && psutil.virtual_memory()[1]
+ * 🐏📈 = [psutil.virtual_memory()[2] && psutil.virtual_memory()[3] && psutil.virtual_memory()[1]](https://www.programcreek.com/python/example/53871/psutil.virtual_memory)
 
- * 🔗📡 = netifaces.interfaces() - w/o loopback and regex `'lo'(?:,\s*)?|[][']|\(|\)` to remove unnecessary characters as suggested [here](https://stackoverflow.com/a/56153556/11456464) also modified to remove () as well
+ * 🔗📡 = [netifaces.interfaces()](https://pypi.org/project/netifaces/) - w/o loopback and regex `'lo'(?:,\s*)?|[][']|\(|\)` to remove unnecessary characters as suggested [here](https://stackoverflow.com/a/56153556/11456464) also modified to remove () as well
 
- * 🐧🌽 = platform.platform
+ * 🐧🌽 = [platform.platform()](https://docs.python.org/2/library/platform.html#platform.platform)
 
 
 
