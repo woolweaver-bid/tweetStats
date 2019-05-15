@@ -85,7 +85,7 @@ def get_pihole_data():
 
 
 def construct_tweet(data):
-     regex = r"'lo'(?:,\s*)?|[][']|\(|\)" # suggestion from https://stackoverflow.com/a/56153556/11456464 modified to remove () as well
+     regex = r"'lo'(?:,\s*)?|[][')(]|(?:,\s*)?'lo'" # modified suggestion from https://stackoverflow.com/questions/56153426/regex-for-replacing-special-patterns-in-a-list#comment98942961_56153556
      cpuLoadAvg = str(os.getloadavg())
      netfaces = str(netifaces.interfaces())
      cpuLoadAvg = re.sub(regex, '', cpuLoadAvg)
