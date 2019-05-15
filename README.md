@@ -39,13 +39,13 @@ This will tweet your stats at 23:59 everyday and redirects output to /dev/null:
 
 🔐🎚️ = privacy_level
 
-🆙⏳ = uptime
+🆙⏳ = uptime - w/ 1-python-pretty-time-delta.py found at https://gist.github.com/thatalextaylor/7408395
 
-⚖️x̅  = loadavg
+⚖️x̅  = loadavg - w/ regex 'lo'(?:,\s*)?|[][']|\(|\) to remove unnecessary characters as suggested here https://stackoverflow.com/a/56153556/11456464 also modified to remove () as well
 
 🐏📈 = psutil.virtual_memory()[2] && psutil.virtual_memory()[3] && psutil.virtual_memory()[1]
 
-🔗📡 = netifaces.interfaces()
+🔗📡 = netifaces.interfaces() - w/o loopback and regex 'lo'(?:,\s*)?|[][']|\(|\) to remove unnecessary characters as suggested here https://stackoverflow.com/a/56153556/11456464 also modified to remove () as well
 
 🐧🌽 = platform.platform
 ```
