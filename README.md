@@ -55,7 +55,7 @@ This will tweet your stats at 23:59 everyday and redirects output to /dev/null:
 # How it looks
 
 ```
-#ComputeHole: The @The_Pi_Hole on @GoogleCompute     
+#ComputeHole: The @The_Pi_Hole on @GCPcloud     
 🚫🌐: 760,159      
 🈵⁉️: 22,900      
 📢🚫: 12,149 (53.05%)      
