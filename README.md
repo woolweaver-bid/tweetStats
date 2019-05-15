@@ -24,18 +24,18 @@ This will tweet your stats at 23:59 everyday and redirects output to /dev/null:
 
 # What Does It Mean
 
- * 🚫🌐 = domains_being_blocked
- * 🈵⁉️  = dns_queries_today
- * 📢🚫 = ads_blocked_today && ads_percentage_today
- * ⁉️⏭  = queries_forwarded
- * ⁉️💾  = queries_cached
- * 🦄🙈 = unique_clients
- * 🔐🎚️ = privacy_level
- * 🆙⏳ = uptime
- * ⚖️x̅  = loadavg
- * 🐏📈 = psutil.virtual_memory()[2] && psutil.virtual_memory()[3] && psutil.virtual_memory()[1]
- * 🔗📡 = netifaces.interfaces()
- * 🐧🌽 = platform.platform
+ * `🚫🌐 = domains_being_blocked`
+ * `🈵⁉️  = dns_queries_today`
+ * `📢🚫 = ads_blocked_today && ads_percentage_today`
+ * `⁉️⏭  = queries_forwarded`
+ * `⁉️💾  = queries_cached`
+ * `🦄🙈 = unique_clients`
+ * `🔐🎚️ = privacy_level`
+ * `🆙⏳ = uptime`
+ * `⚖️x̅  = loadavg`
+ * `🐏📈 = psutil.virtual_memory()[2] && psutil.virtual_memory()[3] && psutil.virtual_memory()[1]`
+ * `🔗📡 = netifaces.interfaces()`
+ * `🐧🌽 = platform.platform`
 
 
 
