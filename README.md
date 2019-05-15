@@ -41,7 +41,7 @@ This will tweet your stats at 23:59 everyday and redirects output to /dev/null:
 
 # How it looks
 
-'''
+```
 
 #ComputeHole: The @The_Pi_Hole on @GoogleCompute     
 🚫🌐: 760,159      
@@ -58,4 +58,5 @@ This will tweet your stats at 23:59 everyday and redirects output to /dev/null:
 🐧/🌽: Linux-5.0.0-1004-gcp-x86_64-with-Ubuntu-19.10-eoan
 
 
-'''
+
+```
