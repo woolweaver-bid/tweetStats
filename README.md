@@ -40,7 +40,7 @@ This will tweet your stats at 23:59 everyday and redirects output to /dev/null:
 
  * 🔐🎚️ = privacy_level
 
- * 🆙⏳ = pretty_time_delta([uptime()](https://pythonhosted.org/uptime/#uptime.uptime)) - w/ [1-python-pretty-time-delta.py](https://gist.github.com/thatalextaylor/7408395)
+ * 🆙⏳ = [pretty_time_delta](https://gist.github.com/thatalextaylor/7408395)([uptime](https://pythonhosted.org/uptime/#uptime.uptime)())
 
  * ⚖️x̅  = [os.getloadavg()](https://docs.python.org/2/library/os.html#os.getloadavg) - w/ regex `'lo'(?:,\s*)?|[][')(]|(?:,\s*)?'lo'` to remove unnecessary characters as suggested [here](https://stackoverflow.com/questions/56153426/regex-for-replacing-special-patterns-in-a-list#comment98942961_56153556) - [regex test](https://regex101.com/r/IhReCT/4)
 
