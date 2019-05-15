@@ -90,7 +90,7 @@ def construct_tweet(data):
      tweet += '\n📢🚫\'d: ' + str(comma_value(data['ads_blocked_today'])) + ' (' + str(round(data['ads_percentage_today'], 2)).replace('.', '.') + '%)'
      tweet += '\n⁉️⏭: ' + str(comma_value(data['queries_forwarded']))
      tweet += '\n⁉️💾: ' + str(comma_value(data['queries_cached']))
-     tweet += '\nUnique 🙈: ' + str(comma_value(data['unique_clients']))
+     tweet += '\nUniq 🙈: ' + str(comma_value(data['unique_clients']))
      tweet += '\n🔐🎚️: ' + str(comma_value(data['privacy_level']))
      tweet += '\n🆙⏳: ' + pretty_time_delta(uptime())
      tweet += '\n⚖️x̅: ' + str(os.getloadavg())
