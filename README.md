@@ -28,7 +28,7 @@ This will tweet your stats at 23:59 everyday and redirects output to /dev/null:
 
  * 🈵⁉️  = dns_queries_today
 
- * 📢🚫 = ads_blocked_today && ads_percentage_today
+ * 📢🚫 = ads_blocked_today|ads_percentage_today
 
  * ⁉️⏭  = queries_forwarded
 
