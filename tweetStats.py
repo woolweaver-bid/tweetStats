@@ -35,7 +35,7 @@ if not (api_path, consumer_key, consumer_key, consumer_secret, access_token, acc
     sys.exit(1)
 
 
-def pretty_time_delta(seconds):
+def pretty_time_delta(seconds): # # 1-python-pretty-time-delta.py found at https://gist.github.com/thatalextaylor/7408395
    seconds = int(seconds)
    days, seconds = divmod(seconds, 86400)
    hours, seconds = divmod(seconds, 3600)
