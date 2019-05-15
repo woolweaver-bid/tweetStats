@@ -24,31 +24,30 @@ This will tweet your stats at 23:59 everyday and redirects output to /dev/null:
 
 # What Does It Mean
 
-```
-🚫🌐 = domains_being_blocked
+ * 🚫🌐 = domains_being_blocked
 
-🈵⁉️  = dns_queries_today
+ * 🈵⁉️  = dns_queries_today
 
-📢🚫 = ads_blocked_today && ads_percentage_today
+ * 📢🚫 = ads_blocked_today && ads_percentage_today
 
-⁉️⏭  = queries_forwarded
+ * ⁉️⏭  = queries_forwarded
 
-⁉️💾  = queries_cached
+ * ⁉️💾  = queries_cached
 
-🦄🙈 = unique_clients
+ * 🦄🙈 = unique_clients
 
-🔐🎚️ = privacy_level
+ * 🔐🎚️ = privacy_level
 
-🆙⏳ = uptime - w/ 1-python-pretty-time-delta.py found at https://gist.github.com/thatalextaylor/7408395
+ * 🆙⏳ = uptime - w/ 1-python-pretty-time-delta.py found at https://gist.github.com/thatalextaylor/7408395
 
-⚖️x̅  = loadavg - w/ regex 'lo'(?:,\s*)?|[][']|\(|\) to remove unnecessary characters as suggested here https://stackoverflow.com/a/56153556/11456464 also modified to remove () as well
+ * ⚖️x̅  = loadavg - w/ regex 'lo'(?:,\s*)?|[][']|\(|\) to remove unnecessary characters as suggested here https://stackoverflow.com/a/56153556/11456464 also modified to remove () as well
 
-🐏📈 = psutil.virtual_memory()[2] && psutil.virtual_memory()[3] && psutil.virtual_memory()[1]
+ * 🐏📈 = psutil.virtual_memory()[2] && psutil.virtual_memory()[3] && psutil.virtual_memory()[1]
 
-🔗📡 = netifaces.interfaces() - w/o loopback and regex 'lo'(?:,\s*)?|[][']|\(|\) to remove unnecessary characters as suggested here https://stackoverflow.com/a/56153556/11456464 also modified to remove () as well
+ * 🔗📡 = netifaces.interfaces() - w/o loopback and regex 'lo'(?:,\s*)?|[][']|\(|\) to remove unnecessary characters as suggested here https://stackoverflow.com/a/56153556/11456464 also modified to remove () as well
 
-🐧🌽 = platform.platform
-```
+ * 🐧🌽 = platform.platform
+
 
 
 
