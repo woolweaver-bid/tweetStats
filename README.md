@@ -36,3 +36,26 @@ This will tweet your stats at 23:59 everyday and redirects output to /dev/null:
  * 🐏📈 = psutil.virtual_memory()[2] && psutil.virtual_memory()[3] && psutil.virtual_memory()[1]
  * 🔗📡 = netifaces.interfaces()
  * 🐧🌽 = platform.platform
+
+
+
+# How it looks
+
+'''
+
+#ComputeHole: The @The_Pi_Hole on @GoogleCompute     
+🚫🌐: 760,159      
+🈵⁉️: 22,900      
+📢🚫: 12,149 (53.05%)      
+⁉️⏭: 6,555      
+⁉️💾: 4,196      
+🦄🙈: 3      
+🔐🎚️: 2      
+🆙⏳: 1d 2h 6m 32s      
+⚖️x̅: (0.0, 0.0, 0.0)        
+🐏📈: 37.5% 460M/1G         
+🔗📡: ens4, tun0, tun1        
+🐧/🌽: Linux-5.0.0-1004-gcp-x86_64-with-Ubuntu-19.10-eoan
+
+
+'''
