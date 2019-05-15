@@ -84,16 +84,16 @@ def get_pihole_data():
 
 
 def construct_tweet(data):
-     tweet = '#ComputeHole'
+     tweet = '#ComputeHole: The @The_Pi_Hole on @GoogleCompute'
      tweet += '\n🚫\'d Domains: ' + str(comma_value(data['domains_being_blocked']))
      tweet += '\n🈵⁉️: ' + str(comma_value(data['dns_queries_today']))
      tweet += '\n📢🚫\'d: ' + str(comma_value(data['ads_blocked_today'])) + ' (' + str(round(data['ads_percentage_today'], 2)).replace('.', '.') + '%)'
-     tweet += '\n⁉️ ⏭: ' + str(comma_value(data['queries_forwarded']))
-     tweet += '\n⁉️ 💾: ' + str(comma_value(data['queries_cached']))
+     tweet += '\n⁉️⏭: ' + str(comma_value(data['queries_forwarded']))
+     tweet += '\n⁉️💾: ' + str(comma_value(data['queries_cached']))
      tweet += '\nUnique 🙈: ' + str(comma_value(data['unique_clients']))
-     tweet += '\nPrivacy 🎛️: ' + str(comma_value(data['privacy_level']))
+     tweet += '\n🔐🎚️: ' + str(comma_value(data['privacy_level']))
      tweet += '\n🆙⏳: ' + pretty_time_delta(uptime())
-     tweet += '\n⚖️ Avg: ' + str(os.getloadavg())
+     tweet += '\n⚖️x̅: ' + str(os.getloadavg())
      tweet += '\n🐏 Usage: ' + str(psutil.virtual_memory()[2]) +  '% ' + str(size(psutil.virtual_memory()[3])) + '/' + str(size(psutil.virtual_memory()[1]))
      tweet += '\n🌽/OS: ' + str(platform.platform())
      return tweet
