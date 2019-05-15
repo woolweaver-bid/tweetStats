@@ -97,8 +97,8 @@ def construct_tweet(data):
      tweet += '\n🔐🎚: ' + str(comma_value(data['privacy_level']))
      tweet += '\n🆙⏳: ' + pretty_time_delta(uptime())
      tweet += '\n⚖️x̅: ' + str(os.getloadavg())
-     tweet += '\n🔗📡: ' + str(netfaces)
      tweet += '\n🐏📈: ' + str(psutil.virtual_memory()[2]) +  '% ' + str(size(psutil.virtual_memory()[3])) + '/' + str(size(psutil.virtual_memory()[1]))
+     tweet += '\n🔗📡: ' + str(netfaces)
      tweet += '\n🐧/🌽: ' + str(platform.platform())
      return tweet
 
