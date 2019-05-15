@@ -44,13 +44,13 @@ This will tweet your stats at 23:59 everyday and redirects output to /dev/null:
 
  * ⚖️x̅  = [os.getloadavg](https://docs.python.org/2/library/os.html#os.getloadavg)()
  
-      * w/ regex `'lo'(?:,\s*)?|[][')(]|(?:,\s*)?'lo'` to remove unnecessary characters as suggested [here](https://stackoverflow.com/questions/56153426/regex-for-replacing-special-patterns-in-a-list#comment98942961_56153556) - [regex test](https://regex101.com/r/IhReCT/4)
+      * w/ [regex](https://stackoverflow.com/questions/56153426/regex-for-replacing-special-patterns-in-a-list#comment98942961_56153556) `'lo'(?:,\s*)?|[][')(]|(?:,\s*)?'lo'` to remove unwanted output - [regex test](https://regex101.com/r/IhReCT/4)
 
  * 🐏📈 = [psutil.virtual_memory()[3] / psutil.virtual_memory()[1] | psutil.virtual_memory()[2]](https://www.programcreek.com/python/example/53871/psutil.virtual_memory)
 
  * 🔗📡 = [netifaces.interfaces](https://pypi.org/project/netifaces/)()
  
-      * w/ regex `'lo'(?:,\s*)?|[][')(]|(?:,\s*)?'lo'` to remove loopback interface and other unnecessary characters as suggested [here](https://stackoverflow.com/questions/56153426/regex-for-replacing-special-patterns-in-a-list#comment98942961_56153556) - [regex test](https://regex101.com/r/IhReCT/4)
+      * w/ [regex](https://stackoverflow.com/questions/56153426/regex-for-replacing-special-patterns-in-a-list#comment98942961_56153556) `'lo'(?:,\s*)?|[][')(]|(?:,\s*)?'lo'` to remove unwanted output - [regex test](https://regex101.com/r/IhReCT/4)
 
  * 🐧🌽 = [platform.platform](https://docs.python.org/2/library/platform.html#platform.platform)()
 
@@ -74,4 +74,4 @@ This will tweet your stats at 23:59 everyday and redirects output to /dev/null:
 🔗📡: ens4, tun0, tun1      
 🐧/🌽: Linux-5.0.0-1004-gcp-x86_64-with-Ubuntu-19.10-eoan
 ```
-![eaxmple](.github/exampleShot.png)
+![example](.github/exampleShot.png)
