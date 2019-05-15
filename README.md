@@ -56,17 +56,17 @@ This will tweet your stats at 23:59 everyday and redirects output to /dev/null:
 # How it looks
 
 ```
-#ComputeHole: The @The_Pi_Hole on @GoogleCompute     
-🚫🌐: 760,159      
-🈵⁉️: 22,900      
-📢🚫: 12,149 (53.05%)      
-⁉️⏭: 6,555      
-⁉️💾: 4,196      
-🦄🙈: 3      
-🔐🎚️: 2      
-🆙⏳: 1d 2h 6m 32s      
-⚖️x̅: (0.0, 0.0, 0.0)        
-🐏📈: 37.5% 460M/1G         
-🔗📡: ens4, tun0, tun1        
+#ComputeHole: The @The_Pi_Hole on @GoogleCompute       
+🚫🌐: 760,159        
+🈵⁉: 26,173      
+📢🚫: 14,488|55.35%       
+⁉⏭: 6,821       
+⁉💾: 4,806      
+🦄🙈: 3       
+🔐🎚: 2       
+🆙⏳: 1d 18h 34m 19s      
+⚖️x̅: 0.03, 0.08, 0.03       
+🐏📈: 469M/1G|38.2%       
+🔗📡: ens4, tun0, tun1      
 🐧/🌽: Linux-5.0.0-1004-gcp-x86_64-with-Ubuntu-19.10-eoan
 ```
