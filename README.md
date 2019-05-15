@@ -42,11 +42,11 @@ This will tweet your stats at 23:59 everyday and redirects output to /dev/null:
 
  * 🆙⏳ = pretty_time_delta([uptime()](https://pythonhosted.org/uptime/#uptime.uptime)) - w/ [1-python-pretty-time-delta.py](https://gist.github.com/thatalextaylor/7408395)
 
- * ⚖️x̅  = [os.getloadavg()](https://docs.python.org/2/library/os.html#os.getloadavg) - w/ regex `'lo'(?:,\s*)?|[][']|\(|\)` to remove unnecessary characters as suggested [here](https://stackoverflow.com/a/56153556/11456464)
+ * ⚖️x̅  = [os.getloadavg()](https://docs.python.org/2/library/os.html#os.getloadavg) - w/ regex `'lo'(?:,\s*)?|[][')(]|(?:,\s*)?'lo'` to remove unnecessary characters as suggested [here](https://stackoverflow.com/questions/56153426/regex-for-replacing-special-patterns-in-a-list#comment98942961_56153556)
 
  * 🐏📈 = [psutil.virtual_memory()[3] / psutil.virtual_memory()[1] | psutil.virtual_memory()[2]](https://www.programcreek.com/python/example/53871/psutil.virtual_memory)
 
- * 🔗📡 = [netifaces.interfaces()](https://pypi.org/project/netifaces/) - w/ regex `'lo'(?:,\s*)?|[][']|\(|\)` to remove loopback interface and other unnecessary characters as suggested [here](https://stackoverflow.com/a/56153556/11456464)
+ * 🔗📡 = [netifaces.interfaces()](https://pypi.org/project/netifaces/) - w/ regex `'lo'(?:,\s*)?|[][')(]|(?:,\s*)?'lo'` to remove loopback interface and other unnecessary characters as suggested [here](https://stackoverflow.com/questions/56153426/regex-for-replacing-special-patterns-in-a-list#comment98942961_56153556)
 
  * 🐧🌽 = [platform.platform()](https://docs.python.org/2/library/platform.html#platform.platform)
 
