@@ -85,22 +85,25 @@ def get_pihole_data():
 
 
 def construct_tweet(data):
+     regex = r"'lo'(?:,\s*)?|[][']|\(|\)" # suggestion from https://stackoverflow.com/a/56153556/11456464 modified to remove () as well
+     cpuLoadAvg = str(os.getloadavg())
      netfaces = str(netifaces.interfaces())
-     netfaces = re.sub('^[^,]+,\s*|\'|\]', '', netfaces)
+     cpuLoadAvg = re.sub(regex, '', cpuLoadAvg)
+     netfaces = re.sub(regex, '', netfaces)
      tweet = '#ComputeHole: The @The_Pi_Hole on @GoogleCompute'
      tweet += '\n🚫🌐: ' + str(comma_value(data['domains_being_blocked']))
      tweet += '\n🈵⁉: ' + str(comma_value(data['dns_queries_today']))
-     tweet += '\n📢🚫: ' + str(comma_value(data['ads_blocked_today'])) + ' (' + str(round(data['ads_percentage_today'], 2)).replace('.', '.') + '%)'
+     tweet += '\n📢🚫: ' + str(comma_value(data['ads_blocked_today'])) + '|' + str(round(data['ads_percentage_today'], 2)).replace('.', '.') + '%'
      tweet += '\n⁉⏭: ' + str(comma_value(data['queries_forwarded']))
      tweet += '\n⁉💾: ' + str(comma_value(data['queries_cached']))
      tweet += '\n🦄🙈: ' + str(comma_value(data['unique_clients']))
      tweet += '\n🔐🎚: ' + str(comma_value(data['privacy_level']))
      tweet += '\n🆙⏳: ' + pretty_time_delta(uptime())
-     tweet += '\n⚖️x̅: ' + str(os.getloadavg())
-     tweet += '\n🐏📈: ' + str(psutil.virtual_memory()[2]) +  '% ' + str(size(psutil.virtual_memory()[3])) + '/' + str(size(psutil.virtual_memory()[1]))
-     tweet += '\n🔗📡: ' + str(netfaces)
-     tweet += '\n🐧/🌽: ' + str(platform.platform())
-     print(tweet)
+     tweet += '\n⚖️x̅: ' + cpuLoadAvg
+     tweet += '\n🐏📈: ' + str(size(psutil.virtual_memory()[3])) + '/' + str(size(psutil.virtual_memory()[1])) + '|' + str(psutil.virtual_memory()[2]) +  '%'
+     tweet += '\n🔗📡: ' + netfaces
+     tweet += '\n🐧/🌽: ' + platform.platform()
+     print(tweet) # always print tweet to console so we can see the output locally
      return tweet
 
 
