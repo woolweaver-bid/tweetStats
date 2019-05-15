@@ -76,7 +76,7 @@ def get_pihole_data():
         print('Got no or invalid JSON.')
         return
     if not all(k in data for k in
-               ('ads_blocked_today', 'ads_percentage_today', 'dns_queries_today', 'domains_being_blocked')):
+               ('ads_blocked_today', 'ads_percentage_today', 'dns_queries_today', 'domains_being_blocked', 'unique_clients', 'status', 'privacy_level', 'queries_forwarded', 'queries_cached', 'unique_domains', 'gravity_last_updated')):
         print('This is not Pi-Hole JSON...')
         return
 
