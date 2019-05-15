@@ -87,7 +87,7 @@ def get_pihole_data():
 def construct_tweet(data):
      netfaces = str(netifaces.interfaces())
      netfaces = re.sub('^[^,]+,\s*|\'|\]', '', netfaces)
-     tweet = '#ComputeHole: The @The_Pi_Hole on @GCPcloud'
+     tweet = '#ComputeHole: The @The_Pi_Hole on @GoogleCompute'
      tweet += '\n🚫🌐: ' + str(comma_value(data['domains_being_blocked']))
      tweet += '\n🈵⁉: ' + str(comma_value(data['dns_queries_today']))
      tweet += '\n📢🚫: ' + str(comma_value(data['ads_blocked_today'])) + ' (' + str(round(data['ads_percentage_today'], 2)).replace('.', '.') + '%)'
@@ -100,6 +100,7 @@ def construct_tweet(data):
      tweet += '\n🐏📈: ' + str(psutil.virtual_memory()[2]) +  '% ' + str(size(psutil.virtual_memory()[3])) + '/' + str(size(psutil.virtual_memory()[1]))
      tweet += '\n🔗📡: ' + str(netfaces)
      tweet += '\n🐧/🌽: ' + str(platform.platform())
+     print(tweet)
      return tweet
 
 
