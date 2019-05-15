@@ -44,7 +44,7 @@ This will tweet your stats at 23:59 everyday and redirects output to /dev/null:
 
  * ⚖️x̅  = [os.getloadavg()](https://docs.python.org/2/library/os.html#os.getloadavg) - w/ regex `'lo'(?:,\s*)?|[][']|\(|\)` to remove unnecessary characters as suggested [here](https://stackoverflow.com/a/56153556/11456464)
 
- * 🐏📈 = [psutil.virtual_memory()[3]/psutil.virtual_memory()[1]|psutil.virtual_memory()[2]](https://www.programcreek.com/python/example/53871/psutil.virtual_memory)
+ * 🐏📈 = [psutil.virtual_memory()[3] / psutil.virtual_memory()[1] | psutil.virtual_memory()[2]](https://www.programcreek.com/python/example/53871/psutil.virtual_memory)
 
  * 🔗📡 = [netifaces.interfaces()](https://pypi.org/project/netifaces/) - w/ regex `'lo'(?:,\s*)?|[][']|\(|\)` to remove loopback interface and other unnecessary characters as suggested [here](https://stackoverflow.com/a/56153556/11456464)
 
