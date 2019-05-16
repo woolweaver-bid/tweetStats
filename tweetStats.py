@@ -13,6 +13,7 @@ from requests import get
 import re # used to apply regex
 import netifaces # used to retreive network interfaces
 
+# check for config.ini
 config = ConfigParser()
 try:
     config.read_file(open('config.ini'))
@@ -20,7 +21,7 @@ except FileNotFoundError:
     print('config.ini not found.')
     sys.exit(1)
 
-# API path
+# set key info from config.ini
 try:
     api_path = config['DEFAULT']['api_path']
     consumer_key = config['DEFAULT']['consumer_key']
@@ -35,7 +36,7 @@ if not (api_path, consumer_key, consumer_key, consumer_secret, access_token, acc
     sys.exit(1)
 
 # pretty_time_delta Make uptime appear in Days, Hours, Minutes, Seconds
-def pretty_time_delta(seconds): # # pretty-time-delta.py found at https://gist.github.com/thatalextaylor/7408395
+def pretty_time_delta(seconds): # pretty-time-delta.py found at https://gist.github.com/thatalextaylor/7408395
    seconds = int(seconds)
    days, seconds = divmod(seconds, 86400)
    hours, seconds = divmod(seconds, 3600)
@@ -84,13 +85,14 @@ def get_pihole_data():
 
     return data
 
-# Build the tweet / where most of the work happens
+# Build the tweet / foramt info to our liking / where most of the work happens
 def construct_tweet(data):
      regex = r"'lo'(?:,\s*)?|[][')(]|(?:,\s*)?'lo'" # modified suggestion from https://stackoverflow.com/questions/56153426/regex-for-replacing-special-patterns-in-a-list#comment98942961_56153556 - https://regex101.com/r/IhReCT/4
-     cpuLoadAvg = str(os.getloadavg())
-     netfaces = str(netifaces.interfaces())
-     cpuLoadAvg = re.sub(regex, '', cpuLoadAvg)
-     netfaces = re.sub(regex, '', netfaces)
+     cpuLoadAvg = str(os.getloadavg()) # regex can't manipulate a list so turn to string
+     netfaces = str(netifaces.interfaces()) # regex can't manipulate a list so turn to string
+     cpuLoadAvg = re.sub(regex, '', cpuLoadAvg) # format newly created string to our liking
+     netfaces = re.sub(regex, '', netfaces) # format newly created string to our liking 
+     # actually build tweet
      tweet = '#ComputeHole: The @The_Pi_Hole on @GoogleCompute'
      tweet += '\n🚫🌐: ' + str(comma_value(data['domains_being_blocked']))
      tweet += '\n🈵⁉: ' + str(comma_value(data['dns_queries_today']))
