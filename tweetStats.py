@@ -17,8 +17,8 @@ import netifaces # used to retreive network interfaces
 config = ConfigParser()
 try:
     config.read_file(open('config.ini'))
-except FileNotFoundError:
-    print('config.ini not found.')
+except configparser.Error as e:
+        print(e.message)
     sys.exit(1)
 
 # set key info from config.ini
