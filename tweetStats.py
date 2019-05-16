@@ -28,9 +28,9 @@ try:
     consumer_secret = config['DEFAULT']['consumer_secret']
     access_token = config['DEFAULT']['access_token']
     access_token_secret = config['DEFAULT']['access_token_secret']
-except KeyError as exception:
-    print('Please check your config.ini.')
-    sys.exit(1)
+except configparser.Error as e:
+       print(e.message)
+       sys.exit(1)
 if not (api_path, consumer_key, consumer_key, consumer_secret, access_token, access_token_secret):
     print('2 Please check your config.ini.')
     sys.exit(1)
