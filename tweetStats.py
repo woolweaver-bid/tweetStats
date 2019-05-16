@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import sys
-from configparser import ConfigParser
-from datetime import datetime
-import psutil
+from configparser import ConfigParser # Used to parse config.ini
+from datetime import datetime 
+import psutil # Used to retrieve memory stats
 import os
 from hurry.filesize import size
-from uptime import uptime
-import platform
-import tweepy
+from uptime import uptime # used to retreive system uptime
+import platform # used to retreive OS && kernel version
+import tweepy # used to actually send tweet
 from requests import get
-import re
-import netifaces
+import re # used to apply regex
+import netifaces # used to retreive network interfaces
 
 config = ConfigParser()
 try:
@@ -34,8 +34,8 @@ if not (api_path, consumer_key, consumer_key, consumer_secret, access_token, acc
     print('2 Please check your config.ini.')
     sys.exit(1)
 
-
-def pretty_time_delta(seconds): # # 1-python-pretty-time-delta.py found at https://gist.github.com/thatalextaylor/7408395
+# pretty_time_delta Make uptime appear in Days, Hours, Minutes, Seconds
+def pretty_time_delta(seconds): # # pretty-time-delta.py found at https://gist.github.com/thatalextaylor/7408395
    seconds = int(seconds)
    days, seconds = divmod(seconds, 86400)
    hours, seconds = divmod(seconds, 3600)
@@ -49,17 +49,18 @@ def pretty_time_delta(seconds): # # 1-python-pretty-time-delta.py found at https
    else:
        return '%ds' % (seconds,)
 
+# make commas happen / can also be used to swap commas for decimals
 def comma_value(num):
    """Helper function for thousand separators"""
    return "{:,}".format(int(num)).replace(',', ',')
 
-
+# login to Twitter
 def get_api():
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
     return tweepy.API(auth)
 
-
+# retreive data from pi-hole api.php (probably will break in a future update of pi-hole)
 def get_pihole_data():
     try:
         res = get(api_path)
@@ -83,7 +84,7 @@ def get_pihole_data():
 
     return data
 
-
+# Build the tweet / where most of the work happens
 def construct_tweet(data):
      regex = r"'lo'(?:,\s*)?|[][')(]|(?:,\s*)?'lo'" # modified suggestion from https://stackoverflow.com/questions/56153426/regex-for-replacing-special-patterns-in-a-list#comment98942961_56153556 - https://regex101.com/r/IhReCT/4
      cpuLoadAvg = str(os.getloadavg())
@@ -125,8 +126,8 @@ def main():
     tweet = construct_tweet(data)
     try:
         status = api.update_status(status=tweet)
-    except tweepy.error.TweepError:
-        print('Status could not be posted.')
+    except tweepy.TweepError as e:
+        print(e.reason)
         return
     print('Status posted! https://twitter.com/' + status.author.screen_name + '/status/' + status.id_str)
 
