@@ -40,7 +40,7 @@ This will tweet your stats at 23:59 everyday and redirects output to /dev/null:
  
       * domains_being_blocked, dns_queries_today, ads_blocked_today, ads_percentage_today, queries_forwarded, queries_cached, unique_clients, privacy_level - All pulled from [pi-hole/AdminLTE/api.php](https://github.com/pi-hole/AdminLTE/blob/master/api.php)
 
- * 🆙⏳ = [pretty_time_delta](https://gist.github.com/thatalextaylor/7408395)([uptime](https://pythonhosted.org/uptime/#uptime.uptime)())
+ * 🆙⏳ = [pretty_time_delta](https://gist.github.com/mwoolweaver/1eb76fbe26d1cda45cd4b7d39cb762a1)([uptime](https://pythonhosted.org/uptime/#uptime.uptime)())
 
  * ⚖️x̅  = [os.getloadavg](https://docs.python.org/2/library/os.html#os.getloadavg)()
  
