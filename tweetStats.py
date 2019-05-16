@@ -18,8 +18,8 @@ config = ConfigParser()
 try:
     config.read_file(open('config.ini'))
 except configparser.Error as e:
-        print(e.message)
-    sys.exit(1)
+       print(e.message)
+       sys.exit(1)
 
 # set key info from config.ini
 try:
