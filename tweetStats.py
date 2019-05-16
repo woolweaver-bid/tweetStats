@@ -115,8 +115,8 @@ def main():
     api = get_api()
     try:
         print('Logged in as @' + api.me().screen_name)
-    except tweepy.error.TweepError:
-        print('Error while logging in - check your credentials.')
+    except tweepy.error.TweepError as e:
+        print(e.reason)
         return
 
     # Get Pi-Hole info from API
