@@ -8,11 +8,11 @@ from TwitterAPI import TwitterAPI
 def get_api():
 
     keys = cfgt()
-    
+
     KEYS_and_API = TwitterAPI(**keys)
-    
+
     verify = KEYS_and_API.request('account/verify_credentials')
-    
+
     for item in verify.get_iterator():
       if 'screen_name' in item:
         print("logged in as @" + item['screen_name'])
