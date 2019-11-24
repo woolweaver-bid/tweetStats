@@ -51,8 +51,8 @@ def NETtweet(stp):
     Nettweet += '\n#Speedtest'
 
     return (Nettweet)
-    
-    
+
+
 def build_tweet():
     # build tweet
     PH_tweet = PHtweet(pi())
