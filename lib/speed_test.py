@@ -2,18 +2,16 @@
 # -*- coding: utf-8 -*-
 
 def speedtest_ip():
-    
+
     import os
-    import math
-    
+
     import urllib.request, json
     from lib.get_config import get_cfgip as cfgIP
-    
+
     jstring = os.popen("speedtest-cli --share --json").read()
     data = json.loads(jstring)
     client = data["client"]
-    server = data["server"]
-
+    
     ulByte = data["bytes_sent"]/1024/1024
     dlByte = data["bytes_received"]/1024/1024
     us = data["upload"]/1000000
@@ -22,7 +20,6 @@ def speedtest_ip():
     isp = client["isp"]
     share = data["share"]
     ip = client["ip"]
-    country = client["country"]
 
     key = cfgIP()
     address = "http://api.ipstack.com/" + ip + "?access_key=" + key + "&output=json&fields=region_name,continent_name"
@@ -45,7 +42,7 @@ def speedtest_ip():
     ulMBs = str(ulMB) + " MB"
     dlMBs = str(dlMB) + " MB"
     Sdata = ulMBs + "/" + dlMBs
-    
+
     ip = '.'.join(ip.split('.')[:2]) + '.xx.xx'
     region = ipstack['region_name']
     continent = ipstack['continent_name']
