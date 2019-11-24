@@ -56,7 +56,7 @@ class debugSwitch:
         return
     def case_14(self): # -dbv (print all variables needed to create tweet)
         variable_check()
-        return 
+        return
 
 s = debugSwitch()
 
