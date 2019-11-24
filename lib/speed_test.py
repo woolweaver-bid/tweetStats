@@ -11,7 +11,7 @@ def check_ipstack():
     key = cfgIP()
     ip = requests.get('https://www.wikipedia.org').headers['X-Client-IP']
     address = "http://api.ipstack.com/" + ip + "?access_key=" + key + "&output=json&fields=region_name,continent_name"
-    status_code = urllib.request(address)
+    status_code = urllib.request.urlopen(address)
     statusCode = status_code.getcode()
     print(str(statusCode))
 
