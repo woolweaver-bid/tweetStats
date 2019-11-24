@@ -28,7 +28,7 @@ def check_ipstack():
         if badip == None:
             print("please check your IP address \nipstack API URL\n" + address)
         else:
-
+           print("something is really broke")
 
 def speedtest_ip():
 
