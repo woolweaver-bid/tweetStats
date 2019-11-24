@@ -21,7 +21,7 @@ def PHtweet(ph):
     PHtweet += '\n#Python'
 
     return (PHtweet)
-    
+
 def SYtweet(sy):
 
     # Second Tweet
@@ -35,7 +35,7 @@ def SYtweet(sy):
     SYtweet += '\n#' + sy[6] # create hashtag from OS name
 
     return (SYtweet)
-    
+
 def NETtweet(stp):
 
     # Third Tweet
@@ -51,7 +51,6 @@ def NETtweet(stp):
     Nettweet += '\n#Speedtest'
 
     return (Nettweet)
-
 
 def build_tweet():
     # build tweet
