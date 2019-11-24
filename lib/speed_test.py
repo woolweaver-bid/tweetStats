@@ -19,7 +19,7 @@ def check_ipstack():
     status = url_json["error"]
     status_code = status["code"]
 
-    if status_code = 101:
+    if status_code == 101:
         print("invalid access key \nipstack API URL\n" + address)
     else if status_code != None
         print(str(success) + "\nipstack API URL\n" + address)
