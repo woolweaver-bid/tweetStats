@@ -43,7 +43,7 @@ class debugSwitch:
     def switch(self, dbm):
         return getattr(self, 'case_' + str(dbm), lambda: parser.print_help())()
     def case_10(self): # -db (print all variables and test tweet creation)
-        debug_tweet()
+        print_all()
         return
     def case_11(self): # -dbl (test twitter login)
         ga()
@@ -52,13 +52,21 @@ class debugSwitch:
         print(rp()[1])
         return
     def case_13(self): # -dbt (test tweet creation)
-        tweet_creation()
+        p = pi()
+        s = si()
+        t = sip()
+        tweet_creation(p, s, t)
         return
     def case_14(self): # -dbv (print all variables needed to create tweet)
         variable_check()
         return
 
 s = debugSwitch()
+
+def print_all():
+
+    v = variable_check()
+    tweet_creation(v[0], v[1], v[2])
 
 def variable_check():
 
@@ -76,22 +84,27 @@ def variable_check():
     print(rp()[1])
 
     print('\nPihole Stats')
-    print(pi())
+    p = pi()
+    print(p)
 
     print('\nSystem Stats')
-    print(si())
+    s = si()
+    print(s)
 
     print('\nSpeedTest Info')
-    print(sip())
+    t = sip()
+    print(t)
+    
+    return (p, s, t)
 
 
-def tweet_creation():
+def tweet_creation(p, s, t):
 
     print('\nThe tweets that where created.')
     # build tweet
-    PHtweet = ct.PHtweet(pi())
-    SYtweet = ct.SYtweet(si())
-    NETtweet =  ct.NETtweet(sip())
+    PHtweet = ct.PHtweet(p)
+    SYtweet = ct.SYtweet(s)
+    NETtweet =  ct.NETtweet(t)
     tweet = '\n\n Tweet 1\n' + PHtweet + '\n\n Tweet 2\n' + SYtweet + '\n\n Tweet 3\n' + NETtweet + '\n'
     print(tweet)
 
