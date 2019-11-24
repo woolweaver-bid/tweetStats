@@ -11,9 +11,18 @@ def check_ipstack():
     key = cfgIP()
     ip = requests.get('https://www.wikipedia.org').headers['X-Client-IP']
     address = "http://api.ipstack.com/" + ip + "?access_key=" + key + "&output=json&fields=region_name,continent_name"
-    status_code = urllib.request.urlopen(address)
-    statusCode = status_code.getcode()
-    print(str(statusCode) + "\nipstack API URL\n" + address)
+    url = urllib.request.urlopen(address)
+    url_json = json.loads(url.read().decode())
+
+    success = url.getcode()
+    badip = url_json["region_name"]
+    status = url_json["error"]
+    status_code = status["code"]
+
+    if status_code = 101:
+        print("invalid access key \nipstack API URL\n" + address)
+    else if status_code != None
+        print(str(success) + "\nipstack API URL\n" + address)
 
 def speedtest_ip():
 
