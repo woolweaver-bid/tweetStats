@@ -25,10 +25,8 @@ def pihole_info():
 
     rp = reach_pihole()[0]
 
-    # verify pi-hole data
-    try:
-        d = rp.json()
-        gla = d["gravity_last_updated"]
+    d = rp.json()
+    gla = d["gravity_last_updated"]
 
     if not all(k in d for k in # check for needed variables
                ("domains_being_blocked", "dns_queries_today", "ads_blocked_today", "ads_percentage_today", "queries_forwarded", "queries_cached", "unique_clients", "privacy_level", "gravity_last_updated")):
