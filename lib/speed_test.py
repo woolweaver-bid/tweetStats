@@ -16,13 +16,13 @@ def check_ipstack():
     url_json = json.loads(url.read().decode())
 
     success = url.getcode()
-    badip = url_json["region_name"]
     status = url_json["error"]
     status_code = status["code"]
 
     if status_code == 101:
         print("invalid access key \nipstack API URL\n" + address)
     else:
+        badip = url_json["region_name"]
         if status_code != 101 & badip == None:
             print("Please check your IP addres \nipstack API URL\n" + address)
         else:
