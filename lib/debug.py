@@ -90,6 +90,9 @@ def variable_check():
     print("\nPiHole Status")
     print(rp()[1])
 
+    print("\nIPstack.com key")
+    print(cfgip())
+    
     print("\nIPstack.com reachability")
     cip()
 
