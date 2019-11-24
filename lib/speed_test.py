@@ -27,8 +27,8 @@ def check_ipstack():
         else:
             status = url_json["error"]
             status_code = status["code"]
-            if 
-            print(str(success) + "\nipstack API URL\n" + address)
+            if status_code == 101:
+            print("invalid access key \nipstack API URL\n" + address)
 
 def speedtest_ip():
 
