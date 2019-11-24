@@ -3,7 +3,7 @@
 
 from lib.get_api import get_api as ga # where we interact with the Twitter API
 from lib.construct_tweet import build_tweet as bt # where the tweet is put together
-from lib.debug import debug_tweet, d1, s # All the deugging happens here && parses for passed arguements
+from lib.debug import d1, s # All the deugging happens here && parses for passed arguements
 
 
 from threader import Threader
@@ -24,9 +24,9 @@ def tweet_it():
 def main():
     d = int(d1)
     if d != 0: # checks for any passed args
-        s.switch(d) 
+    s.switch(d) 
     else: # if no args send it!!
-        tweet_it()
+    tweet_it()
 
 # action really happens down here tho
 if __name__ == '__main__':
