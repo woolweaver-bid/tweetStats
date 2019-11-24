@@ -11,7 +11,7 @@ def speedtest_ip():
     jstring = os.popen("speedtest-cli --share --json").read()
     data = json.loads(jstring)
     client = data["client"]
-    
+
     ulByte = data["bytes_sent"]/1024/1024
     dlByte = data["bytes_received"]/1024/1024
     us = data["upload"]/1000000
