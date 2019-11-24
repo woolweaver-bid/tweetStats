@@ -16,7 +16,11 @@ def check_ipstack():
     url_json = json.loads(url.read().decode())
 
     success = url.getcode()
-    badip = url_json["region_name"]
+
+    try:
+       badip = url_json["region_name"]
+    except KeyError as e:
+       print("invalid access key \nipstack API URL\n" + address)
 
     if badip != None:
         print(str(success) + "\nipstack API URL\n" + address)
@@ -24,10 +28,7 @@ def check_ipstack():
         if badip == None:
             print("please check your IP address \nipstack API URL\n" + address)
         else:
-            status = url_json["error"]
-            status_code = status["code"]
-            if status_code == 101:
-                print("invalid access key \nipstack API URL\n" + address)
+
 
 def speedtest_ip():
 
