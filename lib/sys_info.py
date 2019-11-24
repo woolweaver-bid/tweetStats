@@ -13,8 +13,7 @@ def sys_info():
     from psutil import getloadavg as gl # how we get cpu load average
     import netifaces as ni  # used to retreive network interfaces
     from datetime import datetime as dt # used to calculate UTC from epoch
-    
- 
+
     regex = r"'lo'(?:,\s*)?|[][')(]|(?:,\s*)?'lo'" # modified suggestion from https://stackoverflow.com/questions/56153426/regex-for-replacing-special-pa>
     total, used, free = du("/") # Get disk stats - we only use 2 of these but the function requires all 3 (total, used, free)
     GBtotal = (total // (2**30)) # convert total space to GB
