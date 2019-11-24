@@ -7,9 +7,11 @@ from lib.speed_test import speedtest_ip as sip # where speedtest information is 
 
 from lib.pihole_info import reach_pihole as rp # test pihole reachability
 from lib.get_api import get_api as ga # where we interact with the Twitter API
+from lib.speed_test import check_ipstack as cip # check ipstack key
 
 from lib.get_config  import get_cfgt as cfgt # twitter keys
 from lib.get_config  import get_cfgp as cfgp # pi-hole address
+from lib.get_config  import get_cfgip as cfgip # ipstack.com key
 
 import lib.construct_tweet as ct # where the tweet is put together
 
@@ -18,7 +20,7 @@ from argparse import ArgumentParser # how we parse command line when/if they are
 
 # parse command line arguements, IF any are passed
 parser = ArgumentParser()
-parser.add_argument('-db', dest='db', type=int, nargs='?', default=0, const=10, help='Will print all variables to console including a contructed tweet')
+parser.add_argument('-dba', dest='dba', type=int, nargs='?', default=0, const=10, help='Will print all variables to console including a contructed tweet')
 parser.add_argument('-dbl', dest='dbl', type=int, nargs='?', default=0, const=11, help='test twitter login')
 parser.add_argument('-dbp', dest='dbp', type=int, nargs='?', default=0, const=12, help='test pi-hole api reachability')
 parser.add_argument('-dbt', dest='dbt', type=int, nargs='?', default=0, const=13, help='test tweet ceation')
@@ -26,13 +28,13 @@ parser.add_argument('-dbv', dest='dbp', type=int, nargs='?', default=0, const=14
 
 args = parser.parse_args()
 
-db = args.db
-dbp = args.dbp
-dbl = args.dbl
+db = args.dba
+dbp = args.dbl
+dbl = args.dbp
 dbt = args.dbt
 dbv = args.dbv
 
-d1 = db + dbl + dbp + dbt + dbv # add our args together for better handling of each case
+d1 = dba + dbl + dbp + dbt + dbv # add our args together for better handling of each case
 
 class debugSwitch:
 
