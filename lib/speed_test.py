@@ -13,7 +13,7 @@ def check_ipstack():
     address = "http://api.ipstack.com/" + ip + "?access_key=" + key + "&output=json&fields=region_name,continent_name"
     status_code = urllib.request.urlopen(address)
     statusCode = status_code.getcode()
-    print(str(statusCode))
+    print(str(statusCode) + "\n ipstack API URL" + address)
 
 def speedtest_ip():
 
