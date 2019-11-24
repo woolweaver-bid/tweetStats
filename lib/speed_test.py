@@ -22,11 +22,12 @@ def check_ipstack():
     if badip != None:
         print(str(success) + "\nipstack API URL\n" + address)
     else:
-        status = url_json["error"]
-        status_code = status["code"]
         if badip == None:
             print("please check your IP address \nipstack API URL\n" + address)
         else:
+            status = url_json["error"]
+            status_code = status["code"]
+            if 
             print(str(success) + "\nipstack API URL\n" + address)
 
 def speedtest_ip():
