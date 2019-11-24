@@ -2,12 +2,11 @@
 # -*- coding: utf-8 -*-
 # retreive data from pi-hole api.php (probably will break in a future update of pi-hole)
 
-def pihole_info():
-    
-    from lib.commaValue import commaValue as cv # insert commas where needed
-    from lib.get_config import get_cfgp as cp # where the config information lives
-    from datetime import datetime as dt # used to calculate UTC from epoch
+
+def reach_pihole():
+
     from requests import get # handles communication to pi-hole
+    from lib.get_config import get_cfgp as cp # where the config information lives
 
     # verify pi-hole reachability
     try:
@@ -15,21 +14,21 @@ def pihole_info():
         x = pihole_api.status_code
     except Exception as e:
         x = 'Could not contact API: ' + str(e)
-        print(x)
         return x
-    # check HTTP response from pi-hole
-    if pihole_api.status_code != 200:
-        x = pihole_api.status_code
-        print(pihole_api.status_code)
-        return x
+
+    return (pihole_api, x)
+
+def pihole_info():
+
+    from lib.commaValue import commaValue as cv # insert commas where needed
+    from datetime import datetime as dt # used to calculate UTC from epoch
+
+    rp = reach_pihole()[0]
+
     # verify pi-hole data
     try:
-        d = pihole_api.json()
+        d = rp.json()
         gla = d["gravity_last_updated"]
-    except: # complain if no JSON
-        x = ('Got no or invalid JSON.')
-        print(x)
-        return x
     if not all(k in d for k in # check for needed variables
                ("domains_being_blocked", "dns_queries_today", "ads_blocked_today", "ads_percentage_today",
                 "queries_forwarded", "queries_cached", "unique_clients", "privacy_level", "gravity_last_updated")):
@@ -50,4 +49,4 @@ def pihole_info():
     glu = dt.utcfromtimestamp(gla["absolute"]).strftime('%Y-%m-%d %H:%M') # pihole_info[7] - date gravity was updated lastSaW F XR
     # return as tuple to ensure data integrity
     return (domains_being_blocked, dns_queries_today, ads_blocked, queries_forwarded,
-            queries_cached, unique_clients, privacy_level, glu, x)
+            queries_cached, unique_clients, privacy_level, glu)
