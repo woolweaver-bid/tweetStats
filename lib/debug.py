@@ -42,19 +42,19 @@ class debugSwitch:
     # Where the switching happens
     def switch(self, dbm):
         return getattr(self, 'case_' + str(dbm), lambda: parser.print_help())()
-    def case_10: # -db (print all variables and test tweet creation)
+    def case_10(self): # -db (print all variables and test tweet creation)
         debug_tweet()
         return
-    def case_11: # -dbl (test twitter login)
+    def case_11(ga()): # -dbl (test twitter login)
         ga()
         return
-    def case_12: # -dbp (test pihole reachability)
+    def case_12(print(rp()[1])): # -dbp (test pihole reachability)
         print(rp()[1])
         return
-    def case_13: # -dbt (test tweet creation)
+    def case_13(tweet_creation()): # -dbt (test tweet creation)
         tweet_creation()
         return
-    def case_14: # -dbv (print all variables needed to create tweet)
+    def case_14(variable_check()): # -dbv (print all variables needed to create tweet)
         variable_check()
         return 
 
