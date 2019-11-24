@@ -24,9 +24,9 @@ def tweet_it():
 def main():
     d = int(d1)
     if d != 0: # checks for any passed args
-    s.switch(d) 
+        s.switch(d) 
     else: # if no args send it!!
-    tweet_it()
+        tweet_it()
 
 # action really happens down here tho
 if __name__ == '__main__':
