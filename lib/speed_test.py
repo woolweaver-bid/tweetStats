@@ -10,8 +10,7 @@ def check_ipstack():
     import requests
 
     key = cfgIP()
-    #ip = requests.get('https://www.wikipedia.org').headers['X-Client-IP']
-    ip = "3522.34.35"
+    ip = requests.get('https://www.wikipedia.org').headers['X-Client-IP']
     address = "http://api.ipstack.com/" + ip + "?access_key=" + key + "&output=json&fields=region_name,continent_name"
     url = urllib.request.urlopen(address)
     url_json = json.loads(url.read().decode())
@@ -29,8 +28,6 @@ def check_ipstack():
                 print("something is really broke")
     except KeyError as e:
         print("invalid access key \nipstack API URL\n" + address)
-
-    
 
 def speedtest_ip():
 
