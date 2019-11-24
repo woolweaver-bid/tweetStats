@@ -94,9 +94,8 @@ def variable_check():
     print('\nSpeedTest Info')
     t = sip()
     print(t)
-    
-    return (p, s, t)
 
+    return (p, s, t)
 
 def tweet_creation(p, s, t):
 
