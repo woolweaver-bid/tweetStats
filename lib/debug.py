@@ -87,13 +87,13 @@ def variable_check():
     print('\nPihole Address')
     print(cfgp())
 
-    print("\nPiHole Status")
+    print("\nPiHole Reachability")
     print(rp()[1])
 
-    print("\nIPstack.com key")
+    print("\nIPstack.com Key")
     print(cfgip())
 
-    print("\nIPstack.com reachability")
+    print("\nIPstack.com Reachability")
     cip()
 
     print('\nPihole Stats')
@@ -104,7 +104,7 @@ def variable_check():
     s = si()
     print(s)
 
-    print('\nSpeedTest Info')
+    print('\nNetwork Stats')
     t = sip()
     print(t)
 
@@ -112,12 +112,12 @@ def variable_check():
 
 def tweet_creation(p, s, t):
 
-    print('\nThe tweets that where created.')
+    print('\n\nThe tweets that where created.')
     # build tweet
     PHtweet = ct.PHtweet(p)
     SYtweet = ct.SYtweet(s)
     NETtweet =  ct.NETtweet(t)
-    tweet = '\n\n Tweet 1\n' + PHtweet + '\n\n Tweet 2\n' + SYtweet + '\n\n Tweet 3\n' + NETtweet + '\n'
+    tweet = '\n Tweet 1\n\n' + PHtweet + '\n Tweet 2\n\n' + SYtweet + '\n Tweet 3\n\n' + NETtweet + '\n\n'
     print(tweet)
 
     print('\nNumber of characters in tweet +/- 1 or 2') # will try and nail this down to a more accurate number
