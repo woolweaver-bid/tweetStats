@@ -24,8 +24,8 @@ parser.add_argument('-dba', dest='dba', type=int, nargs='?', default=0, const=10
 parser.add_argument('-dbl', dest='dbl', type=int, nargs='?', default=0, const=11, help='test twitter login')
 parser.add_argument('-dbp', dest='dbp', type=int, nargs='?', default=0, const=12, help='test pi-hole api reachability')
 parser.add_argument('-dbs', dest='dbs', type=int, nargs='?', default=0, const=13, help='test ipstack.com key')
-parser.add_argument('-dbt', dest='dbt', type=int, nargs='?', default=0, const=14, help='test tweet ceation')
-parser.add_argument('-dbv', dest='dbv', type=int, nargs='?', default=0, const=15, help='test ability to get a variables needed for tweet')
+parser.add_argument('-dbt', dest='dbt', type=int, nargs='?', default=0, const=14, help='test tweet creation')
+parser.add_argument('-dbv', dest='dbv', type=int, nargs='?', default=0, const=15, help='test ability to get all variables needed for tweet')
 
 args = parser.parse_args()
 
