@@ -3,6 +3,7 @@
 from lib.get_config import get_cfgip as cfgIP
 
 import urllib.request
+import json
 
 def check_ipstack():
 
@@ -29,7 +30,6 @@ def check_ipstack():
 def speedtest_ip():
 
     import os
-    import json
 
     jstring = os.popen("speedtest-cli --share --json").read()
     data = json.loads(jstring)
