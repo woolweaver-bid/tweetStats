@@ -18,17 +18,18 @@ def check_ipstack():
     success = url.getcode()
 
     try:
-       badip = url_json["region_name"]
-    except KeyError as e:
-       print("invalid access key \nipstack API URL\n" + address)
-
-    if badip != None:
-        print(str(success) + "\nipstack API URL\n" + address)
-    else:
-        if badip == None:
-            print("please check your IP address \nipstack API URL\n" + address)
+        badip = url_json["region_name"]
+        if badip != None:
+            print(str(success) + "\nipstack API URL\n" + address)
         else:
-           print("something is really broke")
+            if badip == None:
+                print("please check your IP address \nipstack API URL\n" + address)
+            else:
+                print("something is really broke")
+    except KeyError as e:
+        print("invalid access key \nipstack API URL\n" + address)
+
+    
 
 def speedtest_ip():
 
