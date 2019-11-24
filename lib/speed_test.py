@@ -10,7 +10,8 @@ def check_ipstack():
     import requests
 
     key = cfgIP()
-    ip = requests.get('https://www.wikipedia.org').headers['X-Client-IP']
+    # ip = requests.get('https://www.wikipedia.org').headers['X-Client-IP']
+    ip = str(35222.34.22)
     address = "http://api.ipstack.com/" + ip + "?access_key=" + key + "&output=json&fields=region_name,continent_name"
     url = urllib.request.urlopen(address)
     url_json = json.loads(url.read().decode())
@@ -19,12 +20,12 @@ def check_ipstack():
     badip = url_json["region_name"]
 
     if badip != None:
-        print(" \nipstack API URL\n" + address)
+        print(str(success) + "\nipstack API URL\n" + address)
     else:
         status = url_json["error"]
         status_code = status["code"]
-        if status_code == 101 & badip == None:
-            print("invalid access key \nipstack API URL\n" + address)
+        if badip == None:
+            print("please check your IP address \nipstack API URL\n" + address)
         else:
             print(str(success) + "\nipstack API URL\n" + address)
 
