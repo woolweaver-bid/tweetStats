@@ -33,7 +33,7 @@ def SYtweet(sy):
     SYtweet += '\nKernel && OS: ' + sy[4] # kernel && OS information
     SYtweet += '\nBoot Time: ' + sy[5] # time when system booted (your local time)
     SYtweet += '\n#' + sy[6] # create hashtag from OS name
-    
+
     return (SYtweet)
     
 def NETtweet(stp):
@@ -49,7 +49,7 @@ def NETtweet(stp):
     Nettweet += '\nContinent: ' + stp[6] # give continent to preserve exact location
     Nettweet += '\nShare: ' + stp[7] # give sharable speedtest link
     Nettweet += '\n#Speedtest'
-    
+
     return (Nettweet)
     
     
@@ -63,5 +63,5 @@ def build_tweet():
     print("Speedtest Tweet Made")
 
     tweets = [PH_tweet, SY_tweet, NET_tweet]
-    
+
     return(tweets)
