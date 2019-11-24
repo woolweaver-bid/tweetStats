@@ -16,11 +16,7 @@ def check_ipstack():
     url_json = json.loads(url.read().decode())
 
     success = url.getcode()
-    
-    try:
-        badip = url_json["region_name"]
-    except KeyError as e:
-        badip = None
+    badip = url_json["region_name"]
 
     if badip != None:
         print(" \nipstack API URL\n" + address)
