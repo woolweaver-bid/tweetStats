@@ -92,7 +92,7 @@ def variable_check():
 
     print("\nIPstack.com key")
     print(cfgip())
-    
+
     print("\nIPstack.com reachability")
     cip()
 
