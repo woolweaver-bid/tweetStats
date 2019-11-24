@@ -48,7 +48,7 @@ class debugSwitch:
     def case_11(self): # -dbl (test twitter login)
         ga()
         return
-    def case_12(self1])): # -dbp (test pihole reachability)
+    def case_12(self): # -dbp (test pihole reachability)
         print(rp()[1])
         return
     def case_13(self): # -dbt (test tweet creation)
