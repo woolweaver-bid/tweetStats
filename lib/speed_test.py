@@ -21,9 +21,9 @@ def check_ipstack():
 
     if status_code == 101:
         print("invalid access key \nipstack API URL\n" + address)
-    elif status_code != 101 & badip == None
+    elif status_code != 101 & badip == None:
         print("Please check your IP addres \nipstack API URL\n" + address)
-    else
+    else:
         print(str(success) + "\nipstack API URL\n" + address)
 
 def speedtest_ip():
