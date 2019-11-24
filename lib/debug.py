@@ -16,25 +16,27 @@ from lib.get_config  import get_cfgip as cfgip # ipstack.com key
 import lib.construct_tweet as ct # where the tweet is put together
 
 from emoji import UNICODE_EMOJI # where we get our emoji dictionary from
-from argparse import ArgumentParser # how we parse command line when/if they are passed
+from argparse import ArgumentParser # how we parse command line arguments when/if they are passed
 
-# parse command line arguements, IF any are passed
+# parse command line arguments, IF any are passed
 parser = ArgumentParser()
 parser.add_argument('-dba', dest='dba', type=int, nargs='?', default=0, const=10, help='Will print all variables to console including a contructed tweet')
 parser.add_argument('-dbl', dest='dbl', type=int, nargs='?', default=0, const=11, help='test twitter login')
 parser.add_argument('-dbp', dest='dbp', type=int, nargs='?', default=0, const=12, help='test pi-hole api reachability')
-parser.add_argument('-dbt', dest='dbt', type=int, nargs='?', default=0, const=13, help='test tweet ceation')
-parser.add_argument('-dbv', dest='dbp', type=int, nargs='?', default=0, const=14, help='test ability to get a variables needed for tweet')
+parser.add_argument('-dbs', dest='dbs', type=int, nargs='?', default=0, const=13, help='test ipstack.com key')
+parser.add_argument('-dbt', dest='dbt', type=int, nargs='?', default=0, const=14, help='test tweet ceation')
+parser.add_argument('-dbv', dest='dbv', type=int, nargs='?', default=0, const=15, help='test ability to get a variables needed for tweet')
 
 args = parser.parse_args()
 
-db = args.dba
+dba = args.dba
 dbp = args.dbl
 dbl = args.dbp
+dbs = args.dbs
 dbt = args.dbt
 dbv = args.dbv
 
-d1 = dba + dbl + dbp + dbt + dbv # add our args together for better handling of each case
+d1 = dba + dbl + dbp + dbs + dbt + dbv # add our args together for better handling of each case
 
 class debugSwitch:
 
@@ -53,13 +55,16 @@ class debugSwitch:
     def case_12(self): # -dbp (test pihole reachability)
         print(rp()[1])
         return
-    def case_13(self): # -dbt (test tweet creation)
+    def case_13(self): # -dbs (test test ipstack.com key)
+        cip()
+        return
+    def case_14(self): # -dbt (test tweet creation)
         p = pi()
         s = si()
         t = sip()
         tweet_creation(p, s, t)
         return
-    def case_14(self): # -dbv (print all variables needed to create tweet)
+    def case_15(self): # -dbv (print all variables needed to create tweet)
         variable_check()
         return
 
@@ -84,6 +89,9 @@ def variable_check():
 
     print("\nPiHole Status")
     print(rp()[1])
+
+    print("\nIPstack.com reachability")
+    cip()
 
     print('\nPihole Stats')
     p = pi()
