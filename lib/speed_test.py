@@ -15,7 +15,7 @@ def check_ipstack():
     success = url.status_code
 
     try:
-        badip = url_json["region_name"]
+        badip = url["region_name"]
         if badip != None:
             print(str(success) + "\nipstack API URL\n" + address)
         else:
