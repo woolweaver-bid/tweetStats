@@ -22,7 +22,7 @@ def tweet_it():
 def main():
 
     from lib.debug import d1, s # All the deugging happens here && parses for passed arguements
-    
+
     d = int(d1)
     if d != 0: # checks for any passed args
         s.switch(d)

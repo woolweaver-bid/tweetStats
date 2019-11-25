@@ -4,13 +4,12 @@
 def load_config():
     import json as js  # Used to parse config.json
 
-    # check for config.json
     try:
-       with open('config.json') as data:
-          cfg = js.load(data)
-       except FileNotFoundError as e:
-          print(e)
-       raise SystemExit
+        with open('config.json') as data:
+            cfg = js.load(data)
+    except FileNotFoundError as e:
+        print(e)
+        raise SystemExit
     return (cfg)
 
 # get data needed for pi-hole communication

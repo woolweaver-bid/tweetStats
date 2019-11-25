@@ -46,7 +46,7 @@ def speedtest_ip():
 
     key = cfgIP()
     address = "http://api.ipstack.com/" + ip + "?access_key=" + key + "&output=json&fields=region_name,continent_name"
-    
+
     ipstack = get(address).json()
 
     uls = round(us, 2)
