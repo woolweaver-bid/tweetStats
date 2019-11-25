@@ -2,22 +2,17 @@
 # -*- coding: utf-8 -*-
 from lib.get_config import get_cfgip as cfgIP
 
-import urllib.request
+from requests import get
 import json
 
 def check_ipstack():
 
-    import requests
-
     key = cfgIP()
     # ip = requests.get('https://www.wikipedia.org').headers['X-Client-IP']
-    
-    ip = urllib.request.Request('https://www.wikipedia.org').get_header("X-Client-IP")
     address = "http://api.ipstack.com/" + ip + "?access_key=" + key + "&output=json&fields=region_name,continent_name"
-    url = urllib.request.urlopen(address)
-    url_json = json.loads(url.read().decode())
+    url = get(address)
 
-    success = url.getcode()
+    success = url.status_code
 
     try:
         badip = url_json["region_name"]
@@ -50,9 +45,8 @@ def speedtest_ip():
 
     key = cfgIP()
     address = "http://api.ipstack.com/" + ip + "?access_key=" + key + "&output=json&fields=region_name,continent_name"
-
-    with urllib.request.urlopen(address) as url:
-         ipstack = json.loads(url.read().decode())
+    
+    ipstack = get(address)
 
     uls = round(us, 2)
     dls = round(ds, 2)
