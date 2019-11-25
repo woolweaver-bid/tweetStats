@@ -27,7 +27,7 @@ def get_cfgp():
     if not (api): #verify api_path is not None
         print('Please check your config.ini.')
         raise SystemExit
-    # return as tuple to ensure data integrity
+
     return (api)
 
 # get data needed for twitter communication

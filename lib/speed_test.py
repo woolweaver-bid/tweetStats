@@ -23,7 +23,7 @@ def check_ipstack():
             if badip == None:
                 debug = ("please check your IP address \nipstack API URL\n" + address)
             else:
-                debug = ("something is really broke")
+                debug = ("something is really broken")
     except KeyError as e:
         debug = ("invalid access key \nipstack API URL\n" + address)
 
@@ -33,18 +33,37 @@ def speedtest_ip():
 
     import os
     import json
+    import speedtest
 
     jstring = os.popen("speedtest-cli --share --json").read()
     data = json.loads(jstring)
-    client = data["client"]
+
+    servers = []
+    # If you want to test against a specific server
+    # servers = [1234]
+
+    threads = None
+    # If you want to use a single threaded test
+    # threads = 1
+
+    s = speedtest.Speedtest()
+    s.get_servers(servers)
+    s.get_best_server()
+    s.download(threads=threads)
+    s.upload(threads=threads)
+    s.results.share()
+
+    results_dict = s.results.dict()
 
     ulByte = data["bytes_sent"]/1024/1024
     dlByte = data["bytes_received"]/1024/1024
     us = data["upload"]/1000000
     ds = data["download"]/1000000
     pg = data["ping"]
-    isp = client["isp"]
     share = data["share"]
+
+    client = data["client"]
+    isp = client["isp"]
 
     uls = round(us, 2)
     dls = round(ds, 2)
@@ -62,10 +81,10 @@ def speedtest_ip():
     dlMBs = str(dlMB) + " MB"
     Sdata = ulMBs + "/" + dlMBs
 
-    ip = '.'.join(check_ipstack()[1].split('.')[:2]) + '.xx.xx'
-    
-    ipstack = check_ipstack()[0]
+    cip = check_ipstack()
+    ip = '.'.join(cip[1].split('.')[:2]) + '.xx.xx'
+    ipstack = cip[0]
     region = ipstack['region_name']
     continent = ipstack['continent_name']
 
-    return (ping, speed, Sdata, ip, isp, region, continent, share)
+    return (ping, speed, Sdata, ip, isp, region, continent, share, results_dict)

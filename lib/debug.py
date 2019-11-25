@@ -78,13 +78,13 @@ def print_all():
 def variable_check():
 
     # print all variables and test logins/reachability
-    print('\nTwitter Keys')
+    print("\nTwitter Keys")
     print(cfgt())
 
     print("\nCheck Twitter Login")
     ga()
 
-    print('\nPihole Address')
+    print("\nPihole Address")
     print(cfgp())
 
     print("\nPiHole Reachability")
@@ -96,17 +96,20 @@ def variable_check():
     print("\nIPstack.com Reachability")
     print(cip()[2])
 
-    print('\nPihole Stats')
+    print("\nPihole Stats")
     p = pi()
     print(p)
 
-    print('\nSystem Stats')
+    print("\nSystem Stats")
     s = si()
     print(s)
 
-    print('\nNetwork Stats')
+    print("\nNetwork Stats")
     t = sip()
     print(t)
+    
+    print("Speedtest-cli Python Dict")
+    print(t[8])
 
     return (p, s, t)
 
