@@ -12,7 +12,7 @@ def check_ipstack():
     key = cfgIP()
     # ip = requests.get('https://www.wikipedia.org').headers['X-Client-IP']
     
-    ip = urllib.request.Request('https://www.wikipedia.org').get_headers(X-Client-IP)
+    ip = urllib.request.Request('https://www.wikipedia.org').get_header(X-Client-IP)
     address = "http://api.ipstack.com/" + ip + "?access_key=" + key + "&output=json&fields=region_name,continent_name"
     url = urllib.request.urlopen(address)
     url_json = json.loads(url.read().decode())
