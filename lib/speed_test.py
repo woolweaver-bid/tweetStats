@@ -10,9 +10,9 @@ def check_ipstack():
     key = cfgIP()
     ip = get('https://www.wikipedia.org').headers['X-Client-IP']
     address = "http://api.ipstack.com/" + ip + "?access_key=" + key + "&output=json&fields=region_name,continent_name"
+
     url = get(address)
     url_json = url.json()
-
     success = url.status_code
 
     try:

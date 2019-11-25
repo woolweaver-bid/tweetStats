@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from lib.get_api import get_api as ga # where we interact with the Twitter API
-from lib.construct_tweet import build_tweet as bt # where the tweet is put together
-from lib.debug import d1, s # All the deugging happens here && parses for passed arguements
-
-
-from threader import Threader
-
 # Tweet it!
 def tweet_it():
+
+    from threader import Threader
+    
+    from lib.get_api import get_api as ga # where we interact with the Twitter API
+    from lib.construct_tweet import build_tweet as bt # where the tweet is put together
 
     k_a = ga()
     # build tweets
@@ -22,6 +20,9 @@ def tweet_it():
 
 # Make it Happen!!
 def main():
+
+    from lib.debug import d1, s # All the deugging happens here && parses for passed arguements
+    
     d = int(d1)
     if d != 0: # checks for any passed args
         s.switch(d)

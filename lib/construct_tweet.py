@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from lib.pihole_info import pihole_info as pi # where pihole information is gathered
-from lib.sys_info import sys_info as si # where system information is gathered
-from lib.speed_test import speedtest_ip as sip # where speedtest information is gathered
-
 # Build the tweet
 def PHtweet(ph):
 
@@ -53,6 +49,11 @@ def NETtweet(stp):
     return (Nettweet)
 
 def build_tweet():
+
+    from lib.pihole_info import pihole_info as pi # where pihole information is gathered
+    from lib.sys_info import sys_info as si # where system information is gathered
+    from lib.speed_test import speedtest_ip as sip # where speedtest information is gathered
+
     # build tweet
     PH_tweet = PHtweet(pi())
     print("Pi-hole Tweet Made")

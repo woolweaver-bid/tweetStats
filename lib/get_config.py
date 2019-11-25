@@ -1,18 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import json as js  # Used to parse config.json
+def load_config():
+    import json as js  # Used to parse config.json
 
-# check for config.json
-try:
-    with open('config.json') as data:
-        cfg = js.load(data)
-except FileNotFoundError as e:
-    print(e)
-    raise SystemExit
+    # check for config.json
+    try:
+        with open('config.json') as data:
+           cfg = js.load(data)
+        except FileNotFoundError as e:
+           print(e)
+        raise SystemExit
+    return (cfg)
 
 # get data needed for pi-hole communication
 def get_cfgp():
+
+    cfg = load_config()
 
     # verify && set key info from config.json
     cfgP = cfg['pihole']
@@ -30,6 +34,8 @@ def get_cfgp():
 # get data needed for twitter communication
 def get_cfgt():
 
+    cfg = load_config()
+
     # verify && set key info from config.json
     cfgT = cfg['twitter']
     try:
@@ -45,6 +51,8 @@ def get_cfgt():
     return (keys)
 
 def get_cfgip():
+
+    cfg = load_config()
 
     cfgip = cfg['ipstack']
     try: # try to get api_path for pi-hole

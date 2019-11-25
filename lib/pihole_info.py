@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 # retreive data from pi-hole api.php (probably will break in a future update of pi-hole)
 
-
 def reach_pihole():
 
     from requests import get # handles communication to pi-hole
