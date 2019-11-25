@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from lib.get_config import get_cfgip as cfgIP
-
-from requests import get
-import json
 
 def check_ipstack():
+
+    from lib.get_config import get_cfgip as cfgIP
+
+    from requests import get
 
     key = cfgIP()
     ip = get('https://www.wikipedia.org').headers['X-Client-IP']
@@ -18,18 +18,21 @@ def check_ipstack():
     try:
         badip = url_json["region_name"]
         if badip != None:
-            print(str(success) + "\nipstack API URL\n" + address)
+            debug = (str(success) + "\nipstack API URL\n" + address)
         else:
             if badip == None:
-                print("please check your IP address \nipstack API URL\n" + address)
+                debug = ("please check your IP address \nipstack API URL\n" + address)
             else:
-                print("something is really broke")
+                debug = ("something is really broke")
     except KeyError as e:
-        print("invalid access key \nipstack API URL\n" + address)
+        debug = ("invalid access key \nipstack API URL\n" + address)
+
+    return (url_json, ip, debug)
 
 def speedtest_ip():
 
     import os
+    import json
 
     jstring = os.popen("speedtest-cli --share --json").read()
     data = json.loads(jstring)
@@ -42,12 +45,6 @@ def speedtest_ip():
     pg = data["ping"]
     isp = client["isp"]
     share = data["share"]
-    ip = client["ip"]
-
-    key = cfgIP()
-    address = "http://api.ipstack.com/" + ip + "?access_key=" + key + "&output=json&fields=region_name,continent_name"
-
-    ipstack = get(address).json()
 
     uls = round(us, 2)
     dls = round(ds, 2)
@@ -65,7 +62,9 @@ def speedtest_ip():
     dlMBs = str(dlMB) + " MB"
     Sdata = ulMBs + "/" + dlMBs
 
-    ip = '.'.join(ip.split('.')[:2]) + '.xx.xx'
+    ip = '.'.join(check_ipstack()[1].split('.')[:2]) + '.xx.xx'
+    
+    ipstack = check_ipstack()[0]
     region = ipstack['region_name']
     continent = ipstack['continent_name']
 

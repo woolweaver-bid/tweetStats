@@ -56,7 +56,7 @@ class debugSwitch:
         print(rp()[1])
         return
     def case_13(self): # -dbs (test test ipstack.com key)
-        cip()
+        print(cip()[2])
         return
     def case_14(self): # -dbt (test tweet creation)
         p = pi()
@@ -94,7 +94,7 @@ def variable_check():
     print(cfgip())
 
     print("\nIPstack.com Reachability")
-    cip()
+    print(cip()[2])
 
     print('\nPihole Stats')
     p = pi()

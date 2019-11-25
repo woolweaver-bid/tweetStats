@@ -5,7 +5,7 @@
 def tweet_it():
 
     from threader import Threader
-    
+
     from lib.get_api import get_api as ga # where we interact with the Twitter API
     from lib.construct_tweet import build_tweet as bt # where the tweet is put together
 
