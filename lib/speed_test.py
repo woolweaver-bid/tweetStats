@@ -18,14 +18,14 @@ def check_ipstack():
     try:
         badip = url_json["region_name"]
         if badip != None:
-            debug = (str(success) + "\nipstack API URL\n" + address)
+            debug = (str(success) + "\n\nipstack API URL\n" + address)
         else:
             if badip == None:
-                debug = ("please check your IP address \nipstack API URL\n" + address)
+                debug = ("please check your IP address \n\nipstack API URL\n" + address)
             else:
                 debug = ("something is really broken")
     except KeyError as e:
-        debug = ("invalid access key \nipstack API URL\n" + address)
+        debug = ("invalid access key \n\nipstack API URL\n" + address)
 
     return (url_json, ip, debug)
 
