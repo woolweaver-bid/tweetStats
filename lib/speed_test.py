@@ -50,12 +50,14 @@ def speedtest_ip():
 
     data = s.results.dict()
 
+    cip = check_ipstack()
+    ipstack = cip[0]
+
     ulByte = data["bytes_sent"]/1024/1024
     dlByte = data["bytes_received"]/1024/1024
     us = data["upload"]/1000000
     ds = data["download"]/1000000
     pg = data["ping"]
-    share = data["share"]
 
     client = data["client"]
     isp = client["isp"]
@@ -66,19 +68,16 @@ def speedtest_ip():
     dlMB = round(dlByte, 2)
     ulMB = round(ulByte, 2)
 
+    # variables to be passed
+    share = data["share"]
     ping = str(pings) + " ms"
-
     ul = str(uls) + " Mbps"
     dl = str(dls) + " Mbps"
     speed = ul + "/" + dl
-
     ulMBs = str(ulMB) + " MB"
     dlMBs = str(dlMB) + " MB"
     Sdata = ulMBs + "/" + dlMBs
-
-    cip = check_ipstack()
     ip = '.'.join(cip[1].split('.')[:2]) + '.xx.xx'
-    ipstack = cip[0]
     region = ipstack['region_name']
     continent = ipstack['continent_name']
 
