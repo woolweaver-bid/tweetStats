@@ -1,7 +1,7 @@
 {
     "_coments":{
         "pihole":{
-            "api_path":"http://path/to/---> pi.hole/admin/api.php"
+            "api_path":"http://path/to/--> pi.hole/admin/api.php"
         },
         "twitter":{
             "consumer_key":"Get this from twitter when creating the application",
