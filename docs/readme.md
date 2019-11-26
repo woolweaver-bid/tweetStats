@@ -1,4 +1,5 @@
 <h1 id="tweetstats">tweetStats</h1>
+<a href="https://www.codacy.com/manual/mwoolweaver/tweetStats?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mwoolweaver/tweetStats&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/1451288d3ab84c5385cb3b5f75f37eb0"/></a>
 <p>Send a daily tweet with your Pi-Hole statistics and other system information!</p>
 <h2 id="how-to-use">How to use</h2>
 <h3 id="prerequisites">Prerequisites</h3>
