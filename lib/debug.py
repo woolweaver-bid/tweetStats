@@ -107,9 +107,6 @@ def variable_check():
     print("\nNetwork Stats")
     t = sip()
     print(t)
-    
-    print("Speedtest-cli Python Dict")
-    print(t[8])
 
     return (p, s, t)
 
