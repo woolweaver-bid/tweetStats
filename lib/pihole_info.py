@@ -31,10 +31,12 @@ def pihole_info():
                ("domains_being_blocked", "dns_queries_today", "ads_blocked_today", "ads_percentage_today", "queries_forwarded", "queries_cached", "unique_clients", "privacy_level", "gravity_last_updated")):
         print('This is not Pi-Hole JSON...') # complain if all aren't present
         return
+
     # setup pi-hole variables
     ads_blocked_today = str(cv(d["ads_blocked_today"])) #  total number of ads block for the last 24 hrs
     ads_percentage_today = str(round(d["ads_percentage_today"], 2)) # percentage of ads block for the last 24 hrs
-    # variables to  be passedQ
+
+    # variables to  be passed
     domains_being_blocked = str(cv(d["domains_being_blocked"])) # pihole_info[0] - Total number of domians on the block list
     dns_queries_today = str(cv(d["dns_queries_today"])) # pihole_info[1] - total number of dns queries for the last 24 hrs
     ads_blocked = ads_blocked_today + '|' + ads_percentage_today + '%' # pihole_info[2]
@@ -42,7 +44,7 @@ def pihole_info():
     queries_cached = str(cv(d["queries_cached"])) # pihole_info[4] - number of queries cached
     unique_clients = str(cv(d["unique_clients"])) # pihole_info[5] - number of unique clients
     privacy_level = str(cv(d["privacy_level"])) # pihole_info[6] - Admin Privacy level selected
-    glu = dt.utcfromtimestamp(gla["absolute"]).strftime('%Y-%m-%d %H:%M') # pihole_info[7] - date gravity was updated lastSaW F XR
-    # return as tuple to ensure data integrity
+    glu = dt.utcfromtimestamp(gla["absolute"]).strftime('%Y-%m-%d %H:%M') # pihole_info[7] - date gravity was updated last
+
     return (domains_being_blocked, dns_queries_today, ads_blocked, queries_forwarded,
             queries_cached, unique_clients, privacy_level, glu)
