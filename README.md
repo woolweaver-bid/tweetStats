@@ -1,5 +1,7 @@
 # tweetStats
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1451288d3ab84c5385cb3b5f75f37eb0)](https://www.codacy.com/manual/mwoolweaver/tweetStats?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mwoolweaver/tweetStats&amp;utm_campaign=Badge_Grade)
+
 Send a daily tweet with your Pi-Hole statistics and other system information!
 
 ## How to use
