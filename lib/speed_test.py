@@ -87,4 +87,4 @@ def speedtest_ip():
     region = ipstack['region_name']
     continent = ipstack['continent_name']
 
-    return (ping, speed, Sdata, ip, isp, region, continent, share, results_dict)
+    return (ping, speed, Sdata, ip, isp, region, continent, share)
