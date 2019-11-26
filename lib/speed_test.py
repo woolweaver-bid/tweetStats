@@ -31,7 +31,6 @@ def check_ipstack():
 
 def speedtest_ip():
 
-    import json
     import speedtest
 
     servers = []
