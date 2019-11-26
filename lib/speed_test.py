@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-def check_ipstack():
+def ipstack():
 
     from lib.get_config import get_cfgip as cfgIP
 
@@ -76,7 +76,7 @@ def speedtest_ip():
     dlMBs = str(dlMB) + " MB"
     Sdata = ulMBs + "/" + dlMBs
 
-    cip = check_ipstack()
+    cip = ipstack()
     ip = '.'.join(cip[1].split('.')[:2]) + '.xx.xx'
     ipstack = cip[0]
     region = ipstack['region_name']
