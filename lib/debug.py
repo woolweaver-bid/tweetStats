@@ -7,7 +7,7 @@ from lib.speed_test import speedtest_ip as sip # where speedtest information is 
 
 from lib.pihole_info import reach_pihole as rp # test pihole reachability
 from lib.get_api import get_api as ga # where we interact with the Twitter API
-from lib.speed_test import ipstack as cip # check ipstack key
+from lib.speed_test import check_ipstack as cip # check ipstack key
 
 from lib.get_config  import get_cfgt as cfgt # twitter keys
 from lib.get_config  import get_cfgp as cfgp # pi-hole address
