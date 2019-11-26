@@ -31,12 +31,8 @@ def check_ipstack():
 
 def speedtest_ip():
 
-    # import os
     import json
     import speedtest
-
-    # jstring = os.popen("speedtest-cli --share --json").read()
-    # data = json.loads(jstring)
 
     servers = []
     # If you want to test against a specific server
