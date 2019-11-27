@@ -8,18 +8,18 @@ Send a daily tweet with your Pi-Hole statistics and other system information!
 
 ### Prerequisites
 
-  * Pi-hole
+* Pi-hole
 
-    - install Pi-hole (https://install.pi-hole.net) 
-    - `api_path` = Path to `http://pi.hole/admin/api.php` of Pi-Hoe (if you're running this script from the machine running Pi-hole that URL should work)
+  * install Pi-hole (https://install.pi-hole.net) 
+  * `api_path` = Path to `http://pi.hole/admin/api.php` of Pi-Hoe (if you're running this script from the machine running Pi-hole that URL should work)
 
-  * Twitter
+* Twitter
 
-    - Tokens: Create an application [here](https://apps.twitter.com/)
+  * Tokens: Create an application [here](https://apps.twitter.com/)
 
-  * ipstack.com api key
+* ipstack.com api key
 
-    - `access_key` = get this from https://ipstack.com/signup/free
+  *. `access_key` = get this from https://ipstack.com/signup/free
 
 ### Guided Setup (install script)
 
@@ -40,11 +40,11 @@ wget https://raw.githubusercontent.com/mwoolweaver/tweetStats/master/install.sh
 
 ## cmd line args for testing
 
-  *  -db will print the tweet to be sent and all other variables that are used in the proccess.
+*  -db will print the tweet to be sent and all other variables that are used in the proccess.
 
-  *  -dbl will test your twitter credentials to test a successful login.
+*  -dbl will test your twitter credentials to test a successful login.
 
-  *  -dbp will make sure the pi-hole api can be reached. 
+*  -dbp will make sure the pi-hole api can be reached. 
 
 ## Cronjob
 
