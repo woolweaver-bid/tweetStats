@@ -17,11 +17,11 @@ assignees: ''
  A clear and concise description of what you expected to happen.
  
 **please provide version number for the following pip3 modules:**
-* requests
-* hurry.filesize
-* psutil
-* uptime
-* datetime
+  * requests
+  * hurry.filesize
+  * psutil
+  * uptime
+  * datetime
 
 **Additional context**
  Add any other context about the problem here.
