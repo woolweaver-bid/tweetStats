@@ -10,16 +10,16 @@ Send a daily tweet with your Pi-Hole statistics and other system information!
 
 *   Pi-hole
 
-   *   install Pi-hole <https://install.pi-hole.net>
-   *   `api_path` = Path to <http://pi.hole/admin/api.php> of Pi-Hoe (if you're running this script from the machine running Pi-hole that URL should work)
+    *   install Pi-hole <https://install.pi-hole.net>
+    *   `api_path` = Path to <http://pi.hole/admin/api.php> of Pi-Hoe (if you're running this script from the machine running Pi-hole that URL should work)
 
 *   Twitter
 
-   *   Tokens: Create an application [here](https://apps.twitter.com/)
+    *   Tokens: Create an application [here](https://apps.twitter.com/)
 
 *   ipstack.com api key
 
-   *   `access_key` = get this from <https://ipstack.com/signup/free>
+    *   `access_key` = get this from <https://ipstack.com/signup/free>
 
 ### Guided Setup (install script)
 
