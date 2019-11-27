@@ -1,5 +1,5 @@
 ---
-name: something_is_broken
+name: somethingIsBroken
 about: Create a report to help us improve
 title: ''
 labels: ''
