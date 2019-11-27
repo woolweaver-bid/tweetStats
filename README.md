@@ -41,9 +41,7 @@ wget https://raw.githubusercontent.com/mwoolweaver/tweetStats/master/install.sh
 ## cmd line args for testing
 
 *   -db will print the tweet to be sent and all other variables that are used in the proccess.
-
 *   -dbl will test your twitter credentials to test a successful login.
-
 *   -dbp will make sure the pi-hole api can be reached.
 
 ## Cronjob
@@ -64,7 +62,6 @@ cd /path/to/folder/containing/tweetStats.py/
 python3 ./tweetStats.py >> tweetStats.txt
 
 ```
-
 
 ## How it looks
 
