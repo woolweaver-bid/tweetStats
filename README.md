@@ -46,8 +46,6 @@ wget https://raw.githubusercontent.com/mwoolweaver/tweetStats/master/install.sh
 
 ## Cronjob
 
-test cron job w/ `sudo run-parts /etc/cron.daily`
-
 ### Use Install Script
 
 or 
@@ -62,6 +60,8 @@ cd /path/to/folder/containing/tweetStats.py/
 python3 ./tweetStats.py >> tweetStats.txt
 
 ```
+
+test cron job w/ `sudo run-parts /etc/cron.daily`
 
 ## How it looks
 
