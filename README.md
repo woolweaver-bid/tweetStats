@@ -23,7 +23,7 @@ Send a daily tweet with your Pi-Hole statistics and other system information!
 
 ### Guided Setup (install script)
 
-```
+```bash
 wget https://raw.githubusercontent.com/mwoolweaver/tweetStats/master/install.sh
 ./install.sh
 ```
@@ -54,7 +54,7 @@ or
 
 creaate file ```/etc/cron.daily/tweetStats``` with the following contents
 
-```
+```bash
 #!/bin/bash
 cd /path/to/folder/containing/tweetStats.py/
 python3 ./tweetStats.py >> tweetStats.txt
@@ -65,7 +65,7 @@ test cron job w/ `sudo run-parts /etc/cron.daily`
 
 ## How it looks
 
-```
+```bash
 Tweet 1
 #PiHoleStats
 Blocklist Size: 761,313
