@@ -44,7 +44,7 @@ wget https://raw.githubusercontent.com/mwoolweaver/tweetStats/master/install.sh
 
 *   -dbl will test your twitter credentials to test a successful login.
 
-*   -dbp will make sure the pi-hole api can be reached. 
+*   -dbp will make sure the pi-hole api can be reached.
 
 ## Cronjob
 
@@ -66,7 +66,7 @@ python3 ./tweetStats.py >> tweetStats.txt
 ```
 
 
-# How it looks
+## How it looks
 
 ```
 Tweet 1
