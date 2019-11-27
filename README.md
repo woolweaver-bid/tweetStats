@@ -30,13 +30,13 @@ wget https://raw.githubusercontent.com/mwoolweaver/tweetStats/master/install.sh
 
 ### Manual Setup (no install script)
 
-1. `git clone https://github.com/mwoolweaver/tweetStats.git`
-2. Install Python 3
-3. `pip3 install -U -r requirements.txt`
-4. `cp config.json.example config.json` and adjust it
-5. Run it! `python3 tweetStats.py` or `python3 tweetStats.py -h` for help
-6. ???
-7. Profit
+1.  `git clone https://github.com/mwoolweaver/tweetStats.git`
+2.  Install Python 3
+3.  `pip3 install -U -r requirements.txt`
+4.  `cp config.json.example config.json` and adjust it
+5.  Run it! `python3 tweetStats.py` or `python3 tweetStats.py -h` for help
+6.  ???
+7.  Profit
 
 ## cmd line args for testing
 
