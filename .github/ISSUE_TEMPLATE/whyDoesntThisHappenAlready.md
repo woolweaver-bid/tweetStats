@@ -1,5 +1,5 @@
 ---
-name: why_doesnt_this_happen_already
+name: whyDoesntThisHappenAlready
 about: Suggest an idea for tweetStats
 title: ''
 labels: ''
