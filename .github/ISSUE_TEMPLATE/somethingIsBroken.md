@@ -10,20 +10,18 @@ assignees: ''
 **Describe the bug**
  A clear and concise description of what the bug is.
 
-  **To Reproduce**
+**To Reproduce**
  Steps to reproduce the behavior:
 
-  **Expected behavior**
+**Expected behavior**
  A clear and concise description of what you expected to happen.
-
  
-  **please provide version number for the following pip3 modules:**
- *  requests
- *  tweepy
- *  hurry.filesize
- *  psutil
- *  uptime
- *  datetime
+**please provide version number for the following pip3 modules:**
+* requests
+* hurry.filesize
+* psutil
+* uptime
+* datetime
 
-  **Additional context**
+**Additional context**
  Add any other context about the problem here.
