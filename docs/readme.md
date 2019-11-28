@@ -87,4 +87,6 @@ Blocklist Size</span>: 761,313
 <span class="hljs-attribute">Continent</span>: North America
 <span class="hljs-attribute">Share</span>: http://www.speedtest.net/result/8438272507.png
 <span class="hljs-comment">#Speedtest</span>
-</code></pre><p><img src=".github/tweetStats.gif" alt="example"></p>
+
+
+<a class="twitter-timeline" data-dnt="true" data-theme="dark" href="https://twitter.com/Sundered_Heart_?ref_src=twsrc%5Etfw">Tweets by Sundered_Heart_</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
