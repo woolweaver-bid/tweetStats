@@ -5,7 +5,6 @@
 Send a daily tweet with your Pi-Hole statistics and other system information!
 
 ## How to use
-
 ### Prerequisites
 
 *   Pi-hole
@@ -20,14 +19,12 @@ Send a daily tweet with your Pi-Hole statistics and other system information!
 *   ipstack.com api key
 
     *   `access_key` = get this from <https://ipstack.com/signup/free>
-
 ### Guided Setup (install script)
 
 ```bash
 wget https://raw.githubusercontent.com/mwoolweaver/tweetStats/master/install.sh
 ./install.sh
 ```
-
 ### Manual Setup (no install script)
 
 1.  `git clone https://github.com/mwoolweaver/tweetStats.git`
@@ -37,19 +34,14 @@ wget https://raw.githubusercontent.com/mwoolweaver/tweetStats/master/install.sh
 5.  Run it! `python3 tweetStats.py` or `python3 tweetStats.py -h` for help
 6.  ???
 7.  Profit
-
 ## cmd line args for testing
 
 *   -db will print the tweet to be sent and all other variables that are used in the proccess.
 *   -dbl will test your twitter credentials to test a successful login.
 *   -dbp will make sure the pi-hole api can be reached.
-
 ## Cronjob
-
 ### Use Install Script
-
 or 
-
 ### Manual Setup
 
 creaate file ```/etc/cron.daily/tweetStats``` with the following contents
@@ -62,7 +54,6 @@ python3 ./tweetStats.py >> tweetStats.txt
 ```
 
 test cron job w/ `sudo run-parts /etc/cron.daily`
-
 ## How it looks
 
 ```bash
@@ -100,5 +91,4 @@ Continent: North America
 Share: http://www.speedtest.net/result/8438272507.png
 #Speedtest
 ```
-
 ![example](.github/tweetStats.gif)
