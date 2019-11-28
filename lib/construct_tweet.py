@@ -14,7 +14,7 @@ def PHtweet(ph):
     PHtweet += '\nUnique Clients: ' + ph[5] # unique clients
     PHtweet += '\nPrivacy Level: ' + ph[6] # privacy level
     PHtweet += '\nGravity Last Updated: ' + ph[7] # gravity last updated (your local time)
-    PHtweet += '\n#Python'
+    PHtweet += '\n#PiHole'
 
     return (PHtweet)
 
@@ -35,7 +35,7 @@ def SYtweet(sy):
 def NETtweet(stp):
 
     # Third Tweet
-    Nettweet = '#NetStats'
+    Nettweet = '#NetworkStats'
     Nettweet += '\nPing: ' + stp[0] # Ping via speedtest-cli
     Nettweet += '\nSpeed Achieved (dl/ul): ' + stp[1] # Speed (dl/ul) via speedtest-cli
     Nettweet += '\nData Used (dl/ul): ' + stp[2] # Data used (dl/ul) via speedtest-cli
