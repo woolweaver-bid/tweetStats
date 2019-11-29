@@ -37,8 +37,8 @@ def NETtweet(stp):
     # Third Tweet
     Nettweet = '#NetworkStats'
     Nettweet += '\nPing: ' + stp[0] # Ping via speedtest-cli
-    Nettweet += '\nSpeed Achieved (dl/ul): ' + stp[1] # Speed (dl/ul) via speedtest-cli
-    Nettweet += '\nData Used (dl/ul): ' + stp[2] # Data used (dl/ul) via speedtest-cli
+    Nettweet += '\nSpeed Achieved (ul/dl): ' + stp[1] # Speed (dl/ul) via speedtest-cli
+    Nettweet += '\nData Used (ul/dl): ' + stp[2] # Data used (dl/ul) via speedtest-cli
     Nettweet += '\nIP: ' + stp[3] # IP address from speedtest-cli
     Nettweet += '\nISP: ' + stp[4] # ISP from speedtest-cli
     Nettweet += '\nRegion: ' + stp[5] # give region to preserve exact location
