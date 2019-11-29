@@ -4,4 +4,5 @@ omit =
     */.local/*
     # omit everything in /usr
     /usr/*
+    # omit anything in a local directory anywhere
     */local/*
