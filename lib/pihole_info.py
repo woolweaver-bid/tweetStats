@@ -14,7 +14,6 @@ def reach_pihole():
         x = pihole_api.status_code
     except Exception as e:
         x = 'Could not contact API: ' + str(e)
-    
     return (pihole_api, x)
 
 def pihole_info():
