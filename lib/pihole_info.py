@@ -8,10 +8,13 @@ def reach_pihole():
     from lib.get_config import get_cfgp as cp # where the config information lives
 
     # verify pi-hole reachability
-    pihole_api = get(cp()).json() # is passed from get_cfg
-    print(pihole_api)
-    x = pihole_api.status_code
-    
+    try:
+        pihole_api = get(cp())# is passed from get_cfgp
+        x = pihole_api.status_code
+    except Exception as e:
+        x = 'Could not contact API: ' + str(e)
+        return x
+
     return (pihole_api, x)
 
 def pihole_info():
@@ -21,8 +24,9 @@ def pihole_info():
 
     rp = reach_pihole()[0]
 
-    # d = rp.json()
-    gla = rp["gravity_last_updated"]
+    d = rp.json()
+    gla = d["gravity_last_updated"]
+
 
     if not all(k in d for k in # check for needed variables
                ("domains_being_blocked", "dns_queries_today", "ads_blocked_today", "ads_percentage_today", "queries_forwarded", "queries_cached", "unique_clients", "privacy_level", "gravity_last_updated")):
