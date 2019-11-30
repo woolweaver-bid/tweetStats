@@ -9,7 +9,8 @@ def reach_pihole():
 
     # verify pi-hole reachability
     try:
-        pihole_api = get(cp())# is passed from get_cfgp
+        pihole_api = get(cp()).json() # is passed from get_cfg
+        print(pihole_api)
         x = pihole_api.status_code
     except Exception as e:
         x = 'Could not contact API: ' + str(e)
@@ -24,7 +25,7 @@ def pihole_info():
 
     rp = reach_pihole()[0]
 
-    d = rp.json()
+    # d = rp.json()
     gla = d["gravity_last_updated"]
 
     if not all(k in d for k in # check for needed variables
