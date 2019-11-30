@@ -12,9 +12,10 @@ def reach_pihole():
         pihole_api = get(cp()).json() # is passed from get_cfg
         print(pihole_api)
         x = pihole_api.status_code
+        return (pihole_api, x)
     except Exception as e:
         x = 'Could not contact API: ' + str(e)
-    return (pihole_api, x)
+   
 
 def pihole_info():
 
