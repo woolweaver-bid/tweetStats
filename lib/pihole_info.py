@@ -8,14 +8,11 @@ def reach_pihole():
     from lib.get_config import get_cfgp as cp # where the config information lives
 
     # verify pi-hole reachability
-    try:
-        pihole_api = get(cp()).json() # is passed from get_cfg
-        print(pihole_api)
-        x = pihole_api.status_code
-        return (pihole_api, x)
-    except Exception as e:
-        x = 'Could not contact API: ' + str(e)
-   
+    pihole_api = get(cp()).json() # is passed from get_cfg
+    print(pihole_api)
+    x = pihole_api.status_code
+    
+    return (pihole_api, x)
 
 def pihole_info():
 
