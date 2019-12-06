@@ -21,7 +21,7 @@ def sys_info():
     percentHDD = round(100 * float(GBused)/float(GBtotal), 2) # create percentage for disk used
     cpuLoadAvg = str(gl()) # regex can't manipulate a list so turn to string
     netfaces = str(ni.interfaces()) # regex can't manipulate a list so turn to string
-    usedMem = str(sz(vm()[4])) # RAM used
+    usedMem = str(sz(vm()[2])) # RAM used
     totMem = str(sz(vm()[1])) #  RAM available
     percentMem = str(vm()[3]) # RAM percentage used
     totalGB = sz(total) # total disk space in GB
