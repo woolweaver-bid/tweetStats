@@ -22,7 +22,7 @@ def sys_info():
     cpuLoadAvg = str(gl()) # regex can't manipulate a list so turn to string
     netfaces = str(ni.interfaces()) # regex can't manipulate a list so turn to string
     usedMem = str(sz(vm()[4])) # RAM used
-    totMem = str(sz(vm()[2])) #  RAM available
+    totMem = str(sz(vm()[1])) #  RAM available
     percentMem = str(vm()[3]) # RAM percentage used
     totalGB = sz(total) # total disk space in GB
     usedGB = sz(used) # total disk space used in GB
