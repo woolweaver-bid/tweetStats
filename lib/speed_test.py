@@ -39,7 +39,7 @@ def speedtest_ip():
     s.get_servers(servers)
     s.get_best_server()
     s.download(threads=threads)
-    s.upload(threads=threads)
+    s.upload(threads=threads, pre_allocate=False)
     s.results.share()
 
     data = s.results.dict()
