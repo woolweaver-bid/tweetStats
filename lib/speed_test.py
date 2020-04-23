@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-def check_ipstack():
-
-    from lib.get_config import get_cfgip as cfgIP
+def check_ipstack(key):
 
     from requests import get
 
-    key = cfgIP()
     ip = get('https://www.wikipedia.org').headers['X-Client-IP']
     address = "http://api.ipstack.com/" + ip + "?access_key=" + key + "&output=json&fields=region_name,continent_name"
 
@@ -29,7 +26,7 @@ def check_ipstack():
 
     return (url_json, ip, debug)
 
-def speedtest_ip():
+def speedtest_ip(key):
 
     import speedtest
 
@@ -44,7 +41,7 @@ def speedtest_ip():
 
     data = s.results.dict()
 
-    cip = check_ipstack()
+    cip = check_ipstack(key)
     ipstack = cip[0]
 
     ulByte = data["bytes_sent"]/1024/1024

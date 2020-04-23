@@ -4,24 +4,26 @@
 # Tweet it!
 def tweet_it():
 
+    from lib.commom import keysANDapi, ipstack_key, rpi, bt
+
+    # actually make tweets
+    tweets = bt(rpi, ipstack_key)
+
+    # used to send tweets
     from threader import Threader
-
-    from lib.get_api import get_api as ga # where we interact with the Twitter API
-    from lib.construct_tweet import build_tweet as bt # where the tweet is put together
-
-    k_a = ga()
-    # build tweets
-    tweets = bt()
+    
     # send tweets
-    th = Threader(tweets, k_a, wait=2, end_string=False)
+    th = Threader(tweets, keysANDapi, wait=2, end_string=False)
     th.send_tweets()
+    
     # print tweet id's to console
     print(th.tweet_ids_)
 
 # Make it Happen!!
 def main():
 
-    from lib.debug import d1, s # All the deugging happens here && parses for passed arguements
+    # All the deugging happens here && parses for passed arguements
+    from lib.debug import d1, s
 
     d = int(d1)
     if d != 0: # checks for any passed args

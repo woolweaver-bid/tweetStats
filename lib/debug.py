@@ -1,26 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from lib.pihole_info import pihole_info as pi # where pihole information is gathered
+from lib.commom import k_a, rpia, ipstack_key, rpi, phs, cips, bt
+
+# from lib.pihole_info import combinator as pi # where pihole information is gathered
 from lib.sys_info import sys_info as si # where system information is gathered
 from lib.speed_test import speedtest_ip as sip # where speedtest information is gather
-
-from lib.pihole_info import reach_pihole as rp # test pihole reachability
-from lib.get_api import get_api as ga # where we interact with the Twitter API
-from lib.speed_test import check_ipstack as cip # check ipstack key
-
-from lib.get_config  import get_cfgt as cfgt # twitter keys
-from lib.get_config  import get_cfgp as cfgp # pi-hole address
-from lib.get_config  import get_cfgip as cfgip # ipstack.com key
-
-import lib.construct_tweet as ct # where the tweet is put together
-
+# from lib.pihole_info import reach_pihole as rp # test pihole reachability
+from lib.get_api import get_keysANDapi as gka # where we interact with the Twitter API
+# from lib.speed_test import check_ipstack as cip # check ipstack key
+# from lib.get_config  import get_cfg as cfg # twitter keys
+# import lib.construct_tweet as ct # where the tweet is put together
+# from lib.construct_tweet import build_tweets as bt
 from emoji import UNICODE_EMOJI # where we get our emoji dictionary from
 from argparse import ArgumentParser # how we parse command line arguments when/if they are passed
 
 # parse command line arguments, IF any are passed
 parser = ArgumentParser()
-parser.add_argument('-dba', dest='dba', type=int, nargs='?', default=0, const=10, help='Will print all variables to console including a contructed tweet')
 parser.add_argument('-dbl', dest='dbl', type=int, nargs='?', default=0, const=11, help='test twitter login')
 parser.add_argument('-dbp', dest='dbp', type=int, nargs='?', default=0, const=12, help='test pi-hole api reachability')
 parser.add_argument('-dbs', dest='dbs', type=int, nargs='?', default=0, const=13, help='test ipstack.com key')
@@ -29,110 +25,70 @@ parser.add_argument('-dbv', dest='dbv', type=int, nargs='?', default=0, const=15
 
 args = parser.parse_args()
 
-dba = args.dba
 dbp = args.dbl
 dbl = args.dbp
 dbs = args.dbs
 dbt = args.dbt
 dbv = args.dbv
 
-d1 = dba + dbl + dbp + dbs + dbt + dbv # add our args together for better handling of each case
-
-class debugSwitch:
-
-    # Print number used to determine debug output
-    print("Debug Variable = " + str(d1) + "\ntweetStats.py -h for more info")
-
-    # Where the switching happens
-    def switch(self, dbm):
-        return getattr(self, 'case_' + str(dbm), lambda: parser.print_help())()
-    def case_10(self): # -db (print all variables and test tweet creation)
-        print_all()
-        return
-    def case_11(self): # -dbl (test twitter login)
-        ga()
-        return
-    def case_12(self): # -dbp (test pihole reachability)
-        print(rp()[1])
-        return
-    def case_13(self): # -dbs (test test ipstack.com key)
-        print(cip()[2])
-        return
-    def case_14(self): # -dbt (test tweet creation)
-        p = pi()
-        s = si()
-        t = sip()
-        tweet_creation(p, s, t)
-        return
-    def case_15(self): # -dbv (print all variables needed to create tweet)
-        variable_check()
-        return
-
-s = debugSwitch()
-
-def print_all():
-
-    v = variable_check()
-    tweet_creation(v[0], v[1], v[2])
+d1 = dbl + dbp + dbs + dbt + dbv # add our args together for better handling of each case
 
 def variable_check():
 
     # print all variables and test logins/reachability
     print("\nTwitter Keys")
-    print(cfgt())
+    print(k_a)
 
     print("\nCheck Twitter Login")
-    ga()
+    gka(k_a)
 
     print("\nPihole Address")
-    print(cfgp())
+    print(rpia)
 
     print("\nPiHole Reachability")
-    print(rp()[1])
+    print(rpi[2], rpi[3])
 
     print("\nIPstack.com Key")
-    print(cfgip())
+    print(ipstack_key)
 
     print("\nIPstack.com Reachability")
-    print(cip()[2])
+    print(cips)
 
     print("\nPihole Stats")
-    p = pi()
-    print(p)
+    print(phs)
 
     print("\nSystem Stats")
     s = si()
     print(s)
 
     print("\nNetwork Stats")
-    t = sip()
+    t = sip(ipstack_key)
     print(t)
 
-    return (p, s, t)
+class debugSwitch:
 
-def tweet_creation(p, s, t):
+    # Where the switching happens
+    def switch(self, dbm):
+        # Print number used to determine debug output for debug help
+        print("Debug Variable = " + str(d1) + "\ntweetStats.py -h for more info")
+        return getattr(self, 'case_' + str(dbm), lambda: parser.print_help())()
 
-    print('\n\nThe tweets that where created.')
-    # build tweet
-    PHtweet = ct.PHtweet(p)
-    SYtweet = ct.SYtweet(s)
-    NETtweet =  ct.NETtweet(t)
-    tweet = '\n Tweet 1\n\n' + PHtweet + '\n Tweet 2\n\n' + SYtweet + '\n Tweet 3\n\n' + NETtweet + '\n\n'
-    print(tweet)
+    def case_11(self): # -dbl (test twitter login)
+        gka(k_a)
+        return
+    def case_12(self): # -dbp (test pihole reachability)
+        print(rpi)
+        return
+    def case_13(self): # -dbs (test test ipstack.com key)
+        print(cips)
+        return
+    def case_14(self): # -dbt (test tweet creation)
+        b = bt(rpi, ipstack_key)
+        print ('\nTweet made successfully.\n')
+        print (b[0] + "\n\n" + b[1] + "\n\n" + b[2])
+        return
+    def case_15(self): # -dbv (print all variables needed to create tweet)
+        variable_check()
+        return
 
-    print('\nNumber of characters in tweet +/- 1 or 2') # will try and nail this down to a more accurate number
-    num_emoji = (sum(tweet.count(emoji) for emoji in UNICODE_EMOJI)) # accurately count and track emoji
-    ignored_chars = UNICODE_EMOJI.copy() # thanks to https://stackoverflow.com/q/56214183/11456464
-
-    PHnum_other = sum(0 if char in ignored_chars else 1 for char in PHtweet)
-    totalS = (num_emoji * 2 + PHnum_other)
-    print(str(num_emoji) + '(<- individual emjoi * 2) + ' + str(PHnum_other) + '(<- # of characters that aren\'t emoji\'s) = ' +  str(totalS))
-
-    SYnum_other = sum(0 if char in ignored_chars else 1 for char in SYtweet)
-    totalS = (num_emoji * 2 + SYnum_other)
-    print(str(num_emoji) + '(<- individual emjoi * 2) + ' + str(SYnum_other) + '(<- # of characters that aren\'t emoji\'s) = ' +  str(totalS))
-
-    Netnum_other = sum(0 if char in ignored_chars else 1 for char in NETtweet)
-    totalS = (num_emoji * 2 + Netnum_other)
-    print(str(num_emoji) + '(<- individual emjoi * 2) + ' + str(Netnum_other) + '(<- # of characters that aren\'t emoji\'s) = ' +  str(totalS))
-    return
+s = debugSwitch()

@@ -5,37 +5,39 @@
 def PHtweet(ph):
 
     # First Tweet
-    PHtweet = '#PiHoleStats'
-    PHtweet += '\nBlocklist Size: ' + ph[0] # size of block list
-    PHtweet += '\nTotal Queries: ' + ph[1] # total queries
-    PHtweet += '\nQueries Blocked: ' + ph[2] # ads blocked
-    PHtweet += '\nQueries Forwarded: ' + ph[3] # forwarded queries
-    PHtweet += '\nQueries Cached: ' + ph[4] # cached queries
-    PHtweet += '\nUnique Clients: ' + ph[5] # unique clients
-    PHtweet += '\nPrivacy Level: ' + ph[6] # privacy level
-    PHtweet += '\nGravity Last Updated: ' + ph[7] # gravity last updated (your local time)
-    PHtweet += '\n#PiHole'
+    PHtweet = 'Pi-Hole Stats'
+    PHtweet += '\nQueries:' # query stats
+    PHtweet += '\n  Block\'d: ' + ph[0]
+    PHtweet += '\n  Fwd\'d: ' + ph[1]
+    PHtweet += '\n  Cached: ' + ph[2]
+    PHtweet += '\n  Total: ' + ph[3] 
+    PHtweet += '\nClients:' 
+    PHtweet += '\n  ns1|ns2: ' + ph[4]
+    PHtweet += '\nPrivacy Level:' # privacy level
+    PHtweet += '\n  ns1|ns2: ' + ph[5]
+    PHtweet += '\nAdlists Last Updated & Count:' # gravity last updated (your local time)
+    PHtweet += '\n  ns1: ' + ph[6]
+    PHtweet += '\n  ns2: ' + ph[7]
 
     return (PHtweet)
 
 def SYtweet(sy):
 
     # Second Tweet
-    SYtweet = '#SystemStats'
+    SYtweet = 'System Stats'
     SYtweet += '\nCPU Load AVG: ' + sy[0] # CPU load average
     SYtweet += '\nRam Usage: ' + sy[1] # RAM usage
     SYtweet += '\nDisk Usage: ' + sy[2] # disk usage information
     SYtweet += '\nNetwork Interfaces: ' + sy[3] # network interface names (no loopback)
     SYtweet += '\nKernel && OS: ' + sy[4] # kernel && OS information
     SYtweet += '\nBoot Time: ' + sy[5] # time when system booted (your local time)
-    SYtweet += '\n#' + sy[6] # create hashtag from OS name
 
     return (SYtweet)
 
 def NETtweet(stp):
 
     # Third Tweet
-    Nettweet = '#NetworkStats'
+    Nettweet = 'Network Stats'
     Nettweet += '\nPing: ' + stp[0] # Ping via speedtest-cli
     Nettweet += '\nSpeed Achieved (ul/dl): ' + stp[1] # Speed (dl/ul) via speedtest-cli
     Nettweet += '\nData Used (ul/dl): ' + stp[2] # Data used (dl/ul) via speedtest-cli
@@ -44,22 +46,22 @@ def NETtweet(stp):
     Nettweet += '\nRegion: ' + stp[5] # give region to preserve exact location
     Nettweet += '\nContinent: ' + stp[6] # give continent to preserve exact location
     Nettweet += '\nShare: ' + stp[7] # give sharable speedtest link
-    Nettweet += '\n#Speedtest'
 
     return (Nettweet)
 
-def build_tweet():
+def build_tweets(api_pihole, ipstack_key):
 
-    from lib.pihole_info import pihole_info as pi # where pihole information is gathered
+    from lib.pihole_info import combinator as pi # where pihole information is gathered
     from lib.sys_info import sys_info as si # where system information is gathered
     from lib.speed_test import speedtest_ip as sip # where speedtest information is gathered
 
+    p = pi(api_pihole[0], api_pihole[1])
     # build tweet
-    PH_tweet = PHtweet(pi())
+    PH_tweet = PHtweet(p)
     print("Pi-hole Tweet Made")
     SY_tweet = SYtweet(si())
     print("System Tweet Made")
-    NET_tweet =  NETtweet(sip())
+    NET_tweet =  NETtweet(sip(ipstack_key))
     print("Speedtest Tweet Made")
 
     tweets = [PH_tweet, SY_tweet, NET_tweet]

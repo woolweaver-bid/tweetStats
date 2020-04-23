@@ -2,14 +2,11 @@
 # -*- coding: utf-8 -*-
 
 # login to Twitter
-def get_api():
+def get_keysANDapi(cfg):
 
-    from lib.get_config import get_cfgt as cfgt
     from TwitterAPI import TwitterAPI
 
-    keys = cfgt()
-
-    KEYS_and_API = TwitterAPI(**keys)
+    KEYS_and_API = TwitterAPI(**cfg)
 
     verify = KEYS_and_API.request('account/verify_credentials')
 
