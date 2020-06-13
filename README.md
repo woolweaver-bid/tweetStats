@@ -21,6 +21,7 @@ Send a daily tweet with your Pi-Hole statistics and other system information!
 
 ```bash
 wget https://raw.githubusercontent.com/mwoolweaver/tweetStats/master/install.sh
+chmod +x install.sh
 ./install.sh
 ```
 ### Manual Setup (no install script)
