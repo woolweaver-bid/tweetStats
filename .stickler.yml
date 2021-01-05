@@ -3,6 +3,6 @@ linters:
     fixer: true
     python: 3
   shellcheck:
-    shell: bash
+    shell: zsh
 fixers:
   enable: true
